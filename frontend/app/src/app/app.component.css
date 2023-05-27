@@ -1,0 +1,42 @@
+.container {
+    background-color: var(--main-font);
+}
+
+a {
+    color: var(--main-font) !important;
+}
+
+div.col {
+    background-color: var(--bkg-color) !important; 
+}
+
+nav {
+    background-color: var(--bkg-color) !important; 
+}
+
+.navbar-collapse a, select {
+    font-weight: 479;
+    font-size:  2rem;
+}
+
+.navbar-collapse a:hover {
+     color: var(--second-font) !important; 
+}
+
+
+.dropdown-menu {
+    border-top: 2px solid var(--second-font);
+    background-color: var(--bkg-color);
+    color: var(--main-font);
+}
+.nav-select {
+    background-color: var(--bkg-color);
+    color: var(--main-font);
+    border: 2px solid var(--second-font);
+}
+
+.navbar-toggler-icon {
+   background-image:  var(--bs-navbar-toggler-icon-bg);
+   filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+}
+

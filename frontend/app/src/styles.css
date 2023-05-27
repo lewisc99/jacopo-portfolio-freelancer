@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+:root {
+    --bkg-color:  #0C0C0C;
+    --main-font: #FBFBFB;
+    --second-font: #3AD1C8;
+    --title-linear: linear-gradient(#3AD1C8, #FFFFFF);
+    --blue-buttons: #3AD1C8;
+    --bkg-container:#0F0F0F;
+    --border-color:#FBFBFB;
+    --box-shadow: 0 6px 11px 0 rgba(0, 0, 0, 0.3);
+    transition: 0.7s;
+  }
+
+* {
+    font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+}
