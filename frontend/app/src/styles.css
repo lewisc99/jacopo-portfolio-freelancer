@@ -8,9 +8,15 @@
     --bkg-container:#0F0F0F;
     --border-color:#FBFBFB;
     --box-shadow: 0 6px 11px 0 rgba(0, 0, 0, 0.3);
+    --color-linear: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(58,209,200,1) 100%);
     transition: 0.7s;
   }
 
 * {
     font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
 }
+
+body {
+  background-color: var(--bkg-color);
+}
+
