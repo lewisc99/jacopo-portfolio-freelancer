@@ -40,3 +40,35 @@ nav {
    filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
 }
 
+
+#about {
+    height: 600px;
+
+    h1 {
+            font-size: 7rem; 
+            background-image: var( --color-linear);
+            background-clip: text;
+            -webkit-text-fill-color: transparent; 
+            -moz-text-fill-color: transparent;
+    } 
+    h5 {
+        font-size: 3rem;
+        color: var(--main-font);
+    }
+
+    button.btn-click {
+        border: 1px solid var(--blue-buttons) !important;
+        color: var(--main-font);
+        width: 100px !important;
+    }
+
+    button.btn-click:hover {
+        background-color: var(--blue-buttons);
+    }
+
+    img.img-profile {
+       width: 90%;
+       height: 75%;
+    }
+}
+
