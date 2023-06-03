@@ -40,35 +40,69 @@ nav {
    filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
 }
 
+.gradient-color {
+    background-image: var( --color-linear);
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
 
-#about {
+
+.btn-click {
+    border: 1px solid var(--blue-buttons) !important;
+    color: var(--main-font);
+    width: 100px !important;
+    padding: 10px;
+    font-size:18px;
+}
+
+.btn-click:hover {
+    background-color: var(--blue-buttons);
+}
+
+
+#begin {
     height: 600px;
 
     h1 {
             font-size: 7rem; 
-            background-image: var( --color-linear);
-            background-clip: text;
-            -webkit-text-fill-color: transparent; 
-            -moz-text-fill-color: transparent;
     } 
+
     h5 {
         font-size: 3rem;
         color: var(--main-font);
     }
-
-    button.btn-click {
-        border: 1px solid var(--blue-buttons) !important;
-        color: var(--main-font);
-        width: 100px !important;
-    }
-
-    button.btn-click:hover {
-        background-color: var(--blue-buttons);
-    }
-
+  
     img.img-profile {
        width: 90%;
        height: 75%;
     }
 }
 
+code {
+    color: var(--second-font);
+    font-family: inherit;
+}
+
+#about {
+    height: 600px;
+
+    h1 {
+        font-size: 7rem; 
+        z-index:10;
+    } 
+    p {
+        font-size: 2rem;
+        color: var(--main-font);
+    }
+    .introduce {
+         position: relative;
+         left: 12px;
+         top: 70px;
+         font-style: italic;
+         font-size: 4rem;
+         z-index:1;
+         font-family: Snell Roundhand;
+         color: #1b1b1b;
+    }
+}
