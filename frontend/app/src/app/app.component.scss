@@ -139,8 +139,210 @@ code {
 
 
 #references {
-    height: 600px;
+    height: 700px;
     h1 {
         font-size: 7rem; 
     } 
+    
+    div.column-portfolio > div {
+      display: flex !important;
+    }
+    
+    // TITLE //
+    // ------------------- //
+    
+    div > div.title {
+      text-align: center;
+      height:20%;
+      justify-content: center;
+    }
+    
+    // PORTFOLIO CONTAINER //
+    // ------------------- //
+    
+    div.portfolio-container {
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 500px;
+      display: flex !important;
+      flex-direction: row !important;
+    }
+    
+    div.portfolio-container > div {
+      display: flex;
+    }
+    
+    div.portfolio-items {
+      width: 60%;
+      margin: 1%;
+      height: 90%;
+      box-shadow:  var(--box-shadow); //shadow behind the scrollbar
+      animation-name: fade;
+      animation-duration: 1.5s;
+    
+      //move a little the portfolio box
+      @keyframes fade {
+        from {
+          opacity: .4;
+          transform: translateX(4px);
+        } 
+        to {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
+    
+     div.image{
+         display: flex;
+         width: 50%;
+         align-items: center;
+         justify-content: center;
+         color: transparent; 
+    
+         img {
+          width: 75%;
+          height: 65%;
+          border-radius: 10px;
+         }
+      }
+     
+     div.info {
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      justify-content: flex-start;
+     
+      div  {
+        display: flex;
+      }
+      div.portfolio-title {
+        height: 30%;
+        align-items: flex-end;
+      }
+      div.portfolio-subtitle {
+        height: 15%;
+        align-items: center;
+      }
+      div.portfolio-more-information {
+        height: 50%;
+        width: 100%;
+        align-items: center;
+    
+        a {
+          text-align: center;
+          padding: 4%;
+          background-color: var(--blue-buttons);
+          border-radius: 10px;
+          color: rgb(247, 247, 247);
+          text-decoration: none;
+        } 
+        a:hover {
+          transform: translateY(-4px);
+          transition: 0.3s;
+          background-color: var(--blue-buttons-hover);
+        }
+      }
+    
+      h1 {
+        color: var(--main-font);
+        font-size: calc(10px + 1vw);
+      }
+      p {
+        color: var(--second-font);
+      }
+     }
+    }
+    
+    .hide-portfolio {
+      display:none !important;
+    }
+    
+    
+    
+    // PORTFOLIO ARROWS //
+    // ------------------- //
+    
+    div.portfolio-items-arrow {
+      width: 15%;
+      height: 40%;
+      align-items: center;
+      display: flex;
+      cursor: pointer;
+    
+      div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        .arrow {
+          border: solid var(--blue-buttons);
+          border-width: 0 8px 8px 0;
+          display: inline-block;
+          padding: 10px;
+          cursor: pointer;
+          color: transparent; 
+        }
+        .arrow:hover {
+          border: solid var(--blue-buttons-hover);
+          border-width: 0 8px 8px 0;
+        }
+    
+        .right {
+          transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+        }
+        
+        .left {
+          transform: rotate(135deg);
+          -webkit-transform: rotate(135deg);
+        }
+      }
+    
+    }
+    
+    div.selected-portfolio-items {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      height: 10%;
+    }
+    div.selected-portfolio-items > ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      flex-direction: row;
+    }
+    div.selected-portfolio-items > ul > li {
+      width: 4%;
+      color: transparent;
+      cursor: pointer;
+      margin-right: 2%;
+      height: 40%;
+      background-color: var(--border-color);
+      border-radius: 20px;
+      box-shadow:  var(--box-shadow); //shadow behind the scrollbar
+      transition:  background-color 0.5s;
+    }
+    div.selected-portfolio-items > ul > li:hover {
+      background-color: var(--blue-buttons-hover);
+    }
+    
+    
 }
+
+#contacts {
+    height: 800px;
+    
+
+    h1 {
+        font-size: 7rem; 
+        z-index:11;
+    } 
+}
+
+
