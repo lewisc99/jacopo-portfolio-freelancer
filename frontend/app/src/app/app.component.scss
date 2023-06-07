@@ -89,11 +89,12 @@ code {
 
     h1 {
         font-size: 7rem; 
-        z-index:1;
+        z-index:11;
     } 
     p {
         font-size: 2rem;
         color: var(--main-font);
+        z-index:10;
     }
     .introduce {
          position: relative;
@@ -106,10 +107,40 @@ code {
     }
     .semiotical-logo {
         position: relative;
-        background-color: rgb(34, 34, 34);
+        background-color:#0D0D0D;
         width: 400px;
-        height: 400px;
+        height: 500px;
         left: 700px;
-        top: -330px;
+        top: -400px;
     }
+}
+
+
+#services {
+    height: 800px;
+
+    h1 {
+        font-size: 7rem; 
+        z-index:11;
+    } 
+    .card {
+        height: 300px !important;
+        margin-bottom: 10px;
+        background-color: var( --bkg-container);
+        box-shadow: var(--box-shadow);
+    }
+    h3 {
+        color: var(--second-font);
+    }
+    p {
+        color: var(--main-font);
+    }
+}
+
+
+#references {
+    height: 600px;
+    h1 {
+        font-size: 7rem; 
+    } 
 }
