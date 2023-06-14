@@ -347,10 +347,27 @@ code {
       margin-right: 2%;
       margin-bottom: 2%;
     }
+
+    input, textarea {
+        background-color: var(--bkg-container);
+        border: none;
+    }
+    input::placeholder, textarea::placeholder {
+      color: var(--main-font);
+  }
+
 }
 
 footer {
   div.col {
     background-color: #1A1A1A !important;
+    height: 150px;
+  }
+
+  ul {
+    color: var(--main-font);
+    a {
+      font-size: 1.4rem;
+    }
   }
 }
