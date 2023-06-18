@@ -1,0 +1,38 @@
+
+
+h1 {
+    font-size: 7rem;
+    margin-top: 20px;
+}
+
+h3 {
+    color: var(--second-font);
+}
+p {
+    color: var(--main-font);
+}
+
+
+.btn-click-danger {
+    border-color: rgba(227, 34, 34, 0.913) !important;
+}
+
+.btn-click-danger:hover {
+    background-color: rgba(227, 34, 34, 0.913) !important;
+}
+
+label {
+    color: var(--main-font);
+}
+input, textarea {
+    background-color: var(--bkg-container) !important;
+    border: none;
+    color: var(--main-font) !important;
+}
+input {
+    height: 45px;
+}
+
+.btn-click{
+    margin-right: 15px;
+}

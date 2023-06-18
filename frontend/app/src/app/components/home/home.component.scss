@@ -1,0 +1,272 @@
+
+#begin {
+    height: 600px;
+
+    h1 {
+            font-size: 7rem; 
+    } 
+
+    h5 {
+        font-size: 3rem;
+        color: var(--main-font);
+    }
+  
+    img.img-profile {
+       width: 90%;
+       height: 75%;
+    }
+}
+
+code {
+    color: var(--second-font);
+    font-family: inherit;
+}
+
+#about {
+    height: 600px;
+
+    h1 {
+        font-size: 7rem; 
+        z-index:11;
+    } 
+    p {
+        font-size: 2rem;
+        color: var(--main-font);
+        z-index:10;
+    }
+    .introduce {
+         position: relative;
+         left: 12px;
+         top: 70px;
+         font-style: italic;
+         font-size: 4rem;
+         font-family: Snell Roundhand;
+         color: #1b1b1b;
+    }
+    .semiotical-logo {
+        position: relative;
+        background-color:#0D0D0D;
+        width: 400px;
+        height: 500px;
+        left: 700px;
+        top: -400px;
+    }
+}
+
+
+#services {
+    height: 800px;
+
+    h1 {
+        font-size: 7rem; 
+        z-index:11;
+    } 
+    .card {
+        height: 300px !important;
+        margin-bottom: 10px;
+        background-color: var( --bkg-container);
+        box-shadow: var(--box-shadow);
+    }
+    h3 {
+        color: var(--second-font);
+    }
+    p {
+        color: var(--main-font);
+    }
+}
+
+#references {
+  height: 700px;
+  width: 100%;
+  h1 {
+      font-size: 7rem; 
+  } 
+  .carousel {
+    width: 70%;
+  }
+  
+  .flex-column {
+    align-items: center;
+    justify-content: center;
+    display: flex !important;
+  }
+  .carousel-inner {
+    height: 30rem;
+    border-radius: 10px !important;
+    background-color: var(--bkg-container) !important;
+  }
+  span {
+   filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+  }
+
+  .carousel-indicators {
+    button.active {
+      background-color: var(--blue-buttons) !important;
+    }
+    button {
+      background-color: var(--main-font) !important;
+      width: 10%;
+      height: 10px;
+    }
+  }
+
+  img {
+    border-radius: 80px;
+  } 
+
+  .carousel-item {
+    h5 {
+        color: var(--blue-buttons);
+    }
+    p {
+        color: var(--main-font);
+    }
+  }
+  
+ 
+}
+
+#contacts {
+    height: auto;
+    flex-wrap: wrap;
+    h1 {
+        font-size: 7rem; 
+        z-index:11;
+    } 
+    img {
+      margin-right: 2%;
+      margin-bottom: 2%;
+    }
+
+    input, textarea {
+        background-color: var(--bkg-container);
+        border: none;
+        color: var(--main-font);
+    }
+   
+
+}
+
+@media only screen and (max-width: 1200px) {
+
+    section {
+        margin-top: 50px !important;
+    }
+   
+    #begin {
+       height: auto;
+       flex-direction: column;
+        .row {
+            flex-direction: column;
+            div {
+                width: 100%;
+            }
+        }
+
+        img.img-profile {
+            width: 60%;
+            height: 85%;
+         }
+    }
+    #about {
+        height: auto;
+    
+        p {
+            font-size: 1.7rem;
+            color: var(--main-font);
+            z-index:10;
+        }
+        .introduce {
+             font-size: 4rem;
+        }
+        .semiotical-logo {
+            display: none;
+         
+        }
+    }
+    #services {
+        margin-top: 20px;
+        height: auto;
+    }
+    #references {
+        height: auto;
+        margin-top: 25px;
+
+        .carousel {
+            width: 95%;
+          }
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+   
+    #begin {
+        h1 {
+                font-size: 5rem; 
+        } 
+    }
+    #about {
+        h1 {
+            font-size: 5rem; 
+        } 
+        p {
+            font-size: 1.5rem;
+        }
+    }
+    
+    #services {
+        h1 {
+            font-size: 5rem; 
+        } 
+    }
+    
+    #references {
+      h1 {
+          font-size: 5rem; 
+      } 
+    }
+    
+    #contacts {
+        h1 {
+            font-size: 5rem; 
+        } 
+    }
+    
+}
+
+@media only screen and (max-width: 350px) {
+   
+    #begin {
+        h1 {
+                font-size: 4.3rem; 
+        } 
+    }
+    #about {
+        h1 {
+            font-size: 4.3rem; 
+        } 
+        p {
+            font-size: 1.2rem;
+        }
+    }
+    
+    #services {
+        h1 {
+            font-size: 4.3rem; 
+        } 
+    }
+    
+    #references {
+      h1 {
+          font-size: 4.3rem; 
+      } 
+    }
+    
+    #contacts {
+        h1 {
+            font-size: 4.3rem; 
+        } 
+    }
+    
+}

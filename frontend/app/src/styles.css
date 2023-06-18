@@ -20,3 +20,34 @@ body {
   background-color: var(--bkg-color);
 }
 
+
+
+.container {
+    background-color: var(--main-font);
+}
+
+a {
+    color: var(--main-font) !important;
+}
+
+div.col {
+    background-color: var(--bkg-color) !important; 
+}
+.gradient-color {
+  background-image: var( --color-linear);
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+
+.btn-click {
+  border: 1px solid var(--blue-buttons) !important;
+  color: var(--main-font);
+  width: 100px !important;
+  padding: 10px;
+  font-size:18px;
+}
+
+.btn-click:hover {
+  background-color: var(--blue-buttons);
+}
