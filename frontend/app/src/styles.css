@@ -51,3 +51,22 @@ div.col {
 .btn-click:hover {
   background-color: var(--blue-buttons);
 }
+
+.btn-click{
+  margin-right: 15px;
+}
+
+.btn-click-danger {
+  border-color: rgba(227, 34, 34, 0.913) !important;
+}
+
+.btn-click-danger:hover {
+  background-color: rgba(227, 34, 34, 0.913) !important;
+}
+
+@media only screen and (min-height: 1000px) {
+   
+  .container-child {
+    height: 100vh !important;
+  }
+}
