@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { environment } from 'src/environment/environment.test';
-import { ArticleRequest, ArticlesDTO } from '../domain/entities/article';
+import { ArticleDTO, ArticleRequest, ArticlesDTO } from '../domain/entities/article';
 import { Observable, catchError, map, throwError } from 'rxjs';
 
 
@@ -15,15 +15,15 @@ export class ArticleService {
 
   constructor(private httpClient:HttpClient, private router:Router) { }
 
-  create(user: ArticleRequest): Observable<any>
+  create(articleRequest: any): Observable<any>
   {
-      return this.httpClient.post(this.fullURL, user).pipe(
+      return this.httpClient.post(this.fullURL + "api/v1/save-image", articleRequest).pipe(
         catchError( (error:HttpErrorResponse) => {
           return throwError( () =>  this.handleErrorException(error));
         }));
   }
 
-  getAll(sortBy?:string) :Observable<ArticlesDTO>
+  getAll() :Observable<ArticlesDTO>
   {
     return this.httpClient.get<ArticlesDTO>(this.fullURL).pipe(
       map(
@@ -33,6 +33,15 @@ export class ArticleService {
         return throwError( () =>  this.handleErrorException(error));
       }));
   }
+
+  update(user:ArticleRequest) : Observable<any>
+  {
+    // let getBydIdURL = this.fullURL + "/" + user.id;
+    return this.httpClient.put<ArticleDTO>(this.fullURL, user).pipe(
+        catchError( error => throwError(() => this.handleErrorException(error)))
+    )
+  }
+
 
   delete(id:string) : Observable<any>
   {

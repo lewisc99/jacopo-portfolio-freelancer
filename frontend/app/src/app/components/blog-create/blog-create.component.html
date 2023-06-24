@@ -1,28 +1,37 @@
 <div class="container-child">     
     <h1 class="gradient-color text-center">add article</h1>
     <div class="row d-flex col-lg-12 mt-5">
+    <form [formGroup]="formGroup" *ngIf="formGroup" (ngSubmit)="onSubmit()">
     <div class="services-items col-lg-12 flex-wrap d-flex align-content-center justify-content-center">
         <div class="col-lg-6">
                 <div class="form-group">
                 <label for=""  class="mb-2">title:</label>
-                <input type="text" placeholder="Add a Name" class="form-control h-80" />
+                <input type="text" placeholder="Add a Name" class="form-control h-80" formControlName="title" />
             </div>
             <div class="form-group mt-4">
                 <label for="" class="mb-2">text:</label>
-                <textarea placeholder="Add a text" class="form-control" rows="5"></textarea>
+                <textarea placeholder="Add a text" class="form-control" rows="5"  formControlName="text"></textarea>
             </div>
             <div class="form-group mt-4">
                 <label for=""  class="mb-2">article link:</label>
-                <input type="text" placeholder="Add a link" class="form-control h-80" />
+                <input type="text" placeholder="Add a link" class="form-control h-80" formControlName="articleLink"/>
             </div>
             <div class="form-group mt-4">
                 <label for=""  class="mb-2">image:</label>
-                <input type="file" placeholder="Add a link" class="form-control" />
+                <input type="file" placeholder="Add a link" class="form-control" (change)="onFileSelected($event)"/>
             </div>
             <div class="form-group mt-5">
-                <button class="btn btn-click">Save</button>
+                <div
+                class="spinner-border"
+                style="width: 30px; height: 30px"
+                *ngIf="saving"
+              >
+                <span class="sr-only">Saving...</span>
+              </div>
+                <button class="btn btn-click" type="submit">Save</button>
                 <button class="btn btn-click btn-click-danger" routerLink="../">Back</button>
             </div>
         </div>
     </div>
+</form>
 </div>
