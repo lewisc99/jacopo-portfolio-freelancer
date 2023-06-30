@@ -40,8 +40,8 @@ export class BlogCreateComponent implements OnInit {
       formData.append('image', this.formGroup.get('image')!.value);
       formData.append('title', this.formGroup.get('title')!.value);
       formData.append('text', this.formGroup.get('text')!.value);
-      formData.append('text', this.formGroup.get('text')!.value);
-      this.articleService.create(articleRequest).subscribe({
+      formData.append('articleLink', this.formGroup.get('articleLink')!.value);
+      this.articleService.create(formData).subscribe({
         next: (data) => {
             this.saving = false;
             this.formGroup.reset();
