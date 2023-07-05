@@ -3,38 +3,18 @@
     <button class="btn btn-click" routerLink="create">New article</button>
     <div class="row d-flex col-lg-12 mt-5">
         <div class="services-items col-lg-12 flex-wrap d-flex align-content-center justify-content-center">
-              <div class="card col-lg-8">
+              <div class="card col-lg-8" *ngFor="let article of articleList">
                 <div class="article-change">
                   <button class="btn btn-click">Edit</button>
-                  <button class="btn btn-click btn-click-danger ml-4">Remove</button>
+                  <button class="btn btn-click btn-click-danger ml-4" (click)="onDelete(article.id)">Remove</button>
                 </div>
                 <div class="card-body  d-flex flex-column justify-content-evenly align-items-start">
                 <div class="card-image">
-                    <img src="../../../assets/main/article.jpg" />
+                     <img src='data:image/png;base64,{{article.image}}' >
                 </div>
-                  <h3 class="card-title">Special title treatment</h3>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#">more information</a>
-                </div>
-              </div>
-              <div class="card col-lg-8">
-                <div class="card-body  d-flex flex-column justify-content-evenly align-items-start">
-                <div class="card-image">
-                    <img src="../../../assets/main/article.jpg" />
-                </div>
-                  <h3 class="card-title">Special title treatment</h3>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#">more information</a>
-                </div>
-              </div>
-              <div class="card col-lg-8">
-                <div class="card-body  d-flex flex-column justify-content-evenly align-items-start">
-                <div class="card-image">
-                    <img src="../../../assets/main/article.jpg" />
-                </div>
-                  <h3 class="card-title">Special title treatment</h3>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#">more information</a>
+                  <h3 class="card-title">{{article.title}}</h3>
+                  <p class="card-text">{{article.text}}</p>
+                  <a [href]="article.articleLink" target="_blank">{{article.articleLink}}</a>
                 </div>
               </div>
         </div>

@@ -1,4 +1,4 @@
-<div class="container-child">     
+<div class="container-child">
     <h1 class="gradient-color text-center">add article</h1>
     <div class="row d-flex col-lg-12 mt-5">
     <form [formGroup]="formGroup" *ngIf="formGroup" (ngSubmit)="onSubmit()">
@@ -22,11 +22,11 @@
             </div>
             <div class="form-group mt-5">
                 <div
-                class="spinner-border"
-                style="width: 30px; height: 30px"
+                class="spinner-border mr-4"
+                style="width: 30px; height: 30px;margin-right:10px;"
                 *ngIf="saving"
               >
-                <span class="sr-only">Saving...</span>
+                <span class="sr-only"></span>
               </div>
                 <button class="btn btn-click" type="submit">Save</button>
                 <button class="btn btn-click btn-click-danger" routerLink="../">Back</button>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { timeout } from 'rxjs';
 import { ArticleRequest } from 'src/app/domain/entities/article';
 import { ArticleService } from 'src/app/services/article.service';
 
@@ -12,7 +14,7 @@ export class BlogCreateComponent implements OnInit {
   public formGroup:FormGroup;
 	public saving: boolean;
   public selectedFile:any;
-  constructor(private fb:FormBuilder, private articleService:ArticleService) {}
+  constructor(private fb:FormBuilder, private articleService:ArticleService, private router:Router) {}
 
   ngOnInit(): void {
      this.formGroup = this.fb.group({
@@ -34,17 +36,17 @@ export class BlogCreateComponent implements OnInit {
   onSubmit():void {
 
     if (!this.formGroup.invalid) {
-      let articleRequest:ArticleRequest = new ArticleRequest(this.formGroup.value);
-      console.log(this.articleService);
       const formData = new FormData();
       formData.append('image', this.formGroup.get('image')!.value);
       formData.append('title', this.formGroup.get('title')!.value);
       formData.append('text', this.formGroup.get('text')!.value);
       formData.append('articleLink', this.formGroup.get('articleLink')!.value);
+      this.saving = true;
       this.articleService.create(formData).subscribe({
-        next: (data) => {
+        next: () => {
             this.saving = false;
             this.formGroup.reset();
+            this.router.navigate(["../blog"]);
         },
       });
     } else {

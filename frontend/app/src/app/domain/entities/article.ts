@@ -1,11 +1,10 @@
 export class ArticleDTO {
-    
+   public id:string;
+   public title:string;
+   public text:string;
+   public articleLink: string;
+   public image: any;
 }
-
-export class ArticlesDTO {
-    
-}
-
 export class ArticleRequest 
 {
    private title:string;
