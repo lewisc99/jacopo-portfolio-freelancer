@@ -35,4 +35,8 @@ export class BlogComponent implements OnInit {
         }
       })
   }
+
+  public onUpdate(id:string):void {
+    this.router.navigate(["blog",id,"update"]);
+  }
 }

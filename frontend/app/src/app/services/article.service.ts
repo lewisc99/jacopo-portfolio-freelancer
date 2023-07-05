@@ -23,6 +23,18 @@ export class ArticleService {
         }));
   }
 
+  public getById(id:string): Observable<ArticleDTO>
+  {
+      var getByIdUrl = this.fullURL + id;
+      return this.httpClient.get<ArticleDTO>(getByIdUrl).pipe(
+        map(
+          (response:ArticleDTO) => response
+        ),
+        catchError( (error:HttpErrorResponse) => {
+          return throwError( () =>  this.handleErrorException(error));
+        }));
+  }
+
   getAll() :Observable<ArticleDTO[]>
   {
     return this.httpClient.get<ArticleDTO[]>(this.fullURL).pipe(
@@ -34,12 +46,12 @@ export class ArticleService {
       }));
   }
 
-  update(user:ArticleRequest) : Observable<any>
+  update(articleRequest:any) : Observable<any>
   {
-    // let getBydIdURL = this.fullURL + "/" + user.id;
-    return this.httpClient.put<ArticleDTO>(this.fullURL, user).pipe(
-        catchError( error => throwError(() => this.handleErrorException(error)))
-    )
+    return this.httpClient.put(this.fullURL , articleRequest).pipe(
+      catchError( (error:HttpErrorResponse) => {
+        return throwError( () =>  this.handleErrorException(error));
+      }));
   }
 
 

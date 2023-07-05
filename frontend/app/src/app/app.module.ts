@@ -10,6 +10,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { BlogCreateComponent } from './components/blog-create/blog-create.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BlogUpdateComponent } from './components/blog-update/blog-update.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavComponent,
     HomeComponent,
     BlogComponent,
-    BlogCreateComponent
+    BlogCreateComponent,
+    BlogUpdateComponent
   ],
   imports: [
     BrowserModule,

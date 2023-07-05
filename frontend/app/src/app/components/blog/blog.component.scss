@@ -1,3 +1,8 @@
+.services-items {
+    display: flex;
+    flex-direction: column;
+}
+
 h1 {
     font-size: 7rem;
     margin-top: 20px;
@@ -54,4 +59,11 @@ a:hover {
     bottom: 0;
     top: 10px;
     margin-bottom: -50px;
+  }
+
+  @media only screen and (max-width: 400px) {
+   
+    .card {
+        height: auto;
+    }
   }

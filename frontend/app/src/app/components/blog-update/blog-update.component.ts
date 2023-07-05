@@ -1,28 +1,72 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ArticleDTO } from 'src/app/domain/entities/article';
 import { ArticleService } from 'src/app/services/article.service';
 
 @Component({
-  selector: 'app-blog-create',
-  templateUrl: './blog-create.component.html',
-  styleUrls: ['./blog-create.component.scss']
+  selector: 'app-blog-update',
+  templateUrl: './blog-update.component.html',
+  styleUrls: ['./blog-update.component.scss']
 })
-export class BlogCreateComponent implements OnInit {
+export class BlogUpdateComponent implements OnInit, OnDestroy{
+  
   public formGroup:FormGroup;
 	public saving: boolean;
   public selectedFile:File;
   public imageValidation:string = "";
-  constructor(private fb:FormBuilder, private articleService:ArticleService, private router:Router) {}
+  private getIdSubscription:Subscription = new Subscription();
+  private articleDTO:ArticleDTO = new ArticleDTO();
+
+  constructor(private activatedRoute:ActivatedRoute, private fb:FormBuilder, private articleService:ArticleService, private router:Router) {}
+
+ 
 
   ngOnInit(): void {
-     this.formGroup = this.fb.group({
-      title:['', [Validators.required, Validators.maxLength(100)]],
-      text:['',[Validators.required, Validators.maxLength(300)]],
-      articleLink: ['',[Validators.required, Validators.maxLength(200)]],
-      image: ['',[Validators.required]]
+      this.getIdSubscription = this.activatedRoute.paramMap.subscribe( 
+        (params:any) =>
+        {
+          var id = params.get('id');
+          this.getArticleById(id);
+        }
+      )
+  }
+
+  ngOnDestroy(): void {
+    this.getIdSubscription.unsubscribe();
+  }
+
+  getArticleById(id:string): void
+  {
+      this.articleService.getById(id).subscribe
+      (
+        {
+          next: (result:ArticleDTO) =>
+          {
+          this.articleDTO = result;
+          this.initiateFormGroup();
+          },
+          error: error =>
+          {
+              alert(error);
+          }
+        }
+      )
+  }
+
+  
+  initiateFormGroup():void 
+  {
+    this.formGroup = this.fb.group({
+      id: [this.articleDTO.id],
+      title:[this.articleDTO.title, [Validators.required, Validators.maxLength(100)]],
+      text:[this.articleDTO.text,[Validators.required, Validators.maxLength(300)]],
+      articleLink: [this.articleDTO.articleLink,[Validators.required, Validators.maxLength(200)]],
+      image: [,[Validators.required]]
      })
   }
+
  
   onFileSelected(event: any) {
 
@@ -48,12 +92,13 @@ export class BlogCreateComponent implements OnInit {
     
     if (!this.formGroup.invalid) {
       const formData = new FormData();
+      formData.append('id', this.formGroup.get('id')!.value);
       formData.append('image', this.formGroup.get('image')!.value);
       formData.append('title', this.formGroup.get('title')!.value);
       formData.append('text', this.formGroup.get('text')!.value);
       formData.append('articleLink', this.formGroup.get('articleLink')!.value);
       this.saving = true;
-      this.articleService.create(formData).subscribe({
+      this.articleService.update(formData).subscribe({
         next: () => {
             this.saving = false;
             this.formGroup.reset();
