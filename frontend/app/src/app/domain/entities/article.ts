@@ -5,6 +5,13 @@ export class ArticleDTO {
    public articleLink: string;
    public image: any;
 }
+
+export class ArticlesDTO {
+   public _embedded:ArticleDTO[] = [];
+   public totalPages: number;
+   public totalElements: number;
+}
+
 export class ArticleRequest 
 {
    private title:string;
@@ -19,4 +26,10 @@ export class ArticleRequest
         this.articleLink = formGroup.articleLink;
         this.image = formGroup.image;
    }
+}
+
+
+export class PageModel {
+   public page:number;
+   public size:number;
 }

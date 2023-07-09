@@ -2,8 +2,9 @@ package com.lewis.jacoco.domain.entities;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
-
+import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
+import java.util.Date;
 import java.util.UUID;
 
 
@@ -20,9 +21,16 @@ public class Article {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     private UUID id;
+
+    @Length(max = 100)
     private String title;
+
+    @Length(max = 300)
     private String text;
+    @Length(max = 200)
     private String articleLink;
+
+    private final Date createdDateTime = new Date();
 
     @Lob
     private byte[] image;
@@ -65,5 +73,9 @@ public class Article {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public Date getCreatedDateTime() {
+        return createdDateTime;
     }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { environment } from 'src/environment/environment.test';
-import { ArticleDTO, ArticleRequest } from '../domain/entities/article';
+import { ArticleDTO, ArticlesDTO, PageModel } from '../domain/entities/article';
 import { Observable, catchError, map, throwError } from 'rxjs';
 
 
@@ -35,11 +35,13 @@ export class ArticleService {
         }));
   }
 
-  getAll() :Observable<ArticleDTO[]>
+  getAll(pageRequest?:PageModel) :Observable<ArticlesDTO>
   {
-    return this.httpClient.get<ArticleDTO[]>(this.fullURL).pipe(
+    let getAllUrl = this.fullURL + `?size=${pageRequest?.size}&page=${pageRequest?.page}`;
+
+    return this.httpClient.get<ArticlesDTO>(getAllUrl).pipe(
       map(
-         (response:ArticleDTO[]) => response
+         (response:ArticlesDTO) => response
       ),
       catchError( (error:HttpErrorResponse) => {
         return throwError( () =>  this.handleErrorException(error));

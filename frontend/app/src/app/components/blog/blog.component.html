@@ -3,7 +3,7 @@
     <button class="btn btn-click" routerLink="create">New article</button>
     <div class="row d-flex col-lg-12 mt-5">
         <div class="services-items col-lg-12 flex-wrap d-flex align-content-center justify-content-center">
-              <div class="card col-lg-8" *ngFor="let article of articleList">
+              <div class="card col-lg-8" *ngFor="let article of articlesDTO?._embedded">
                 <div class="article-change">
                   <button class="btn btn-click" (click)="onUpdate(article.id)">Edit</button>
                   <button class="btn btn-click btn-click-danger ml-4" (click)="onDelete(article.id)">Remove</button>
@@ -17,17 +17,22 @@
                   <a [href]="article.articleLink" target="_blank">{{article.articleLink}}</a>
                 </div>
               </div>
+              <div
+              class="spinner-border mr-4"
+              style="width: 60px; height: 60px;margin-right:10px;"
+              *ngIf="loading"
+            >
+              <span class="sr-only"></span>
+            </div>
         </div>
         <nav aria-label="Page navigation example" class="mt-4">
             <ul class="pagination justify-content-center pagination-lg">
               <li class="page-item">
-                <a class="page-link active" href="#" tabindex="-1">Previous</a>
+                <a class="page-link previous" tabindex="-1" id="previous" (click)="previousAndNextPaginated(false)">Previous</a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item" *ngFor="let item of [].constructor(articlesDTO?.totalPages); let i = index"><a class="page-link" id="page-item-{{i}}" (click)="getAll(i)">{{i + 1}}</a></li>
               <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+                <a class="page-link" id="next" (click)="previousAndNextPaginated(true)">Next</a>
               </li>
             </ul>
           </nav>
