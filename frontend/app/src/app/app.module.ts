@@ -8,9 +8,11 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogCreateComponent } from './components/blog-create/blog-create.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogUpdateComponent } from './components/blog-update/blog-update.component';
+import { AuthGuard } from './shared/auth-guards/auth.guard';
+import { TokenInterceptor } from './shared/interceptor/token-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { BlogUpdateComponent } from './components/blog-update/blog-update.compon
 		FormsModule
   ],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true}, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

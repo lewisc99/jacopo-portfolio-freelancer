@@ -2,18 +2,20 @@
   <h1 class="gradient-color text-center">LOGIN</h1>
   <div class="row justify-content-center align-items-top mt-2">
       <div class="col-lg-6">
+        <form [formGroup]="formGroup" *ngIf="formGroup" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for=""  class="mb-2">Email:</label>
-          <input type="text" placeholder="Add a Name" class="form-control h-80" />
+          <input type="text" placeholder="Add a Name" class="form-control h-80" formControlName="email"/>
         </div>
         <div class="form-group mt-4">
           <label for="" class="mb-2">Password:</label>
-          <input type="text" placeholder="Add a Password" class="form-control" />
+          <input type="text" placeholder="Add a Password" class="form-control" formControlName="password" />
         </div>
         <div class="form-group mt-5">
-          <button class="btn btn-click">Login</button>
+          <button class="btn btn-click" type="submit">Login</button>
           <button class="btn btn-click btn-click-danger" routerLink="../">Back</button>
         </div>
+      </form>
       </div>
     </div>
   </div>

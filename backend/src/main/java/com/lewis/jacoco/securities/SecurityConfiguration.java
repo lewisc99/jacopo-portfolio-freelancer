@@ -12,6 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -36,7 +39,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/").permitAll()
                 .antMatchers("/h2-console/").permitAll()
-                .antMatchers("/api/v1/login").permitAll().anyRequest().authenticated().
+                .antMatchers("/login").permitAll().anyRequest().authenticated().
                  and().logout().logoutUrl("/api/v1/logout").clearAuthentication(true)
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
@@ -49,6 +52,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         });
     }
 
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.addAllowedMethod("GET");
+        corsConfiguration.addAllowedMethod("POST");
+        corsConfiguration.addAllowedMethod("PUT");
+        corsConfiguration.addAllowedMethod("DELETE");
+        corsConfiguration.addAllowedHeader("Authorization");
+        corsConfiguration.addAllowedOrigin("*");
+        source.registerCorsConfiguration("/**", corsConfiguration);
+        return source;
+    }
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception

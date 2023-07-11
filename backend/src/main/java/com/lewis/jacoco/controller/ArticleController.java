@@ -15,7 +15,6 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1")
-@CrossOrigin("*")
 public class ArticleController {
 
     @Autowired

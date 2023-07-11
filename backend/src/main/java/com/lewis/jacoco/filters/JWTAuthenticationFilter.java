@@ -27,6 +27,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public JWTAuthenticationFilter(AuthenticationManager authManager)
     {
         authenticationManager = authManager;
+        setFilterProcessesUrl("/api/v1/login"); //to change the default login path to authenticate /login
     }
 
     @Override
