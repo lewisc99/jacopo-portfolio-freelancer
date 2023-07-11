@@ -55,7 +55,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                 String jwt = token.substring(7);
                 Map<String, List<String>> claims = JWTUtil.validateTokenAndRetrieveSubject(jwt);
 
-                if (claims.get("invalid-token").size() != 0) {
+                if (claims.containsKey("invalid-token")) {
                         return null;
                 }
                 List<String> getRoles = new ArrayList<String>();

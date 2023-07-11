@@ -36,8 +36,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/").permitAll()
                 .antMatchers("/h2-console/").permitAll()
-                .antMatchers("/login").permitAll().anyRequest().authenticated().
-                 and().logout().logoutUrl("/logout").clearAuthentication(true)
+                .antMatchers("/api/v1/login").permitAll().anyRequest().authenticated().
+                 and().logout().logoutUrl("/api/v1/logout").clearAuthentication(true)
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()))
