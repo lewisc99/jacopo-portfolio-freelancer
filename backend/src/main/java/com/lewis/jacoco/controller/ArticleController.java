@@ -34,6 +34,11 @@ public class ArticleController {
        return ResponseEntity.ok().body(articleService.findAll(pageModel));
     }
 
+    @GetMapping("ola")
+    public ResponseEntity<String> get() {
+        return ResponseEntity.ok().body("Ola Mundo");
+    }
+
 
     @GetMapping("{id}")
     public ResponseEntity<ArticleDto> getById(@PathVariable UUID id) {
