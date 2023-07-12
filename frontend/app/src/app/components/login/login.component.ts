@@ -18,9 +18,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   errorActived:boolean = false;
   errorMessage:string = "";
   loginSubscription:Subscription;
+  logoutSubscription:Subscription;
 
   constructor(private fb:FormBuilder, private router:Router, private loginService:LoginService) { }
- 
   
   ngOnInit(): void {
     this.formGroup = this.fb.group(
@@ -63,5 +63,5 @@ export class LoginComponent implements OnInit, OnDestroy {
         
   }
 }
-  
+
 }

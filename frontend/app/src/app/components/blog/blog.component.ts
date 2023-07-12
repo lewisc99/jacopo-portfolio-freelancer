@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ArticleService } from '../../services/article.service';
 import { ArticlesDTO, PageModel } from 'src/app/domain/entities/article';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-blog',
@@ -96,4 +97,5 @@ export class BlogComponent implements OnInit {
       this.getAll(this.pageRequest.page);
     }
   }
+  
 }

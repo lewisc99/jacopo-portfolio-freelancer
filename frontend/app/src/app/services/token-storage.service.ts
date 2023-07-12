@@ -39,7 +39,6 @@ import { TokenDto } from "../domain/dtos/tokenDto";
       let token:TokenDto = JSON.parse( this.storageToken.getItem("token")!);
       if ( token == null)
       {
-          console.log(token);
           this.isTokenValid$.next(false);
           return "";
       }
