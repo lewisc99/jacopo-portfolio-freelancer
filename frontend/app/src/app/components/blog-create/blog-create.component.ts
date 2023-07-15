@@ -58,7 +58,7 @@ export class BlogCreateComponent implements OnInit {
             this.saving = false;
             this.formGroup.reset();
             this.router.navigate(["../blog"]);
-        },
+        }, error: (errorMessage) => alert(errorMessage)
       });
     } else {
       if (this.formGroup.value.image == null || this.formGroup.value.image == "")

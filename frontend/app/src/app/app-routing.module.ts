@@ -5,13 +5,12 @@ import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogCreateComponent } from './components/blog-create/blog-create.component';
 import { BlogUpdateComponent } from './components/blog-update/blog-update.component';
-import { AuthGuard } from './shared/auth-guards/auth.guard';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
-  {path:"blog", component:BlogComponent , canActivate:[AuthGuard]},
-  {path:"blog/create", component:BlogCreateComponent , canActivate:[AuthGuard]},
-  {path:"blog/:id/update", component:BlogUpdateComponent , canActivate:[AuthGuard]},
+  {path:"blog", component:BlogComponent },
+  {path:"blog/create", component:BlogCreateComponent },
+  {path:"blog/:id/update", component:BlogUpdateComponent},
   {path:"",component:HomeComponent},
   {path:"**", redirectTo:"",pathMatch:"full"}
 ];

@@ -26,9 +26,9 @@
               BLOG
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item"  routerLink="login">LOGIN</a></li>
+              <li><a class="dropdown-item"  routerLink="login" [hidden]="isLoggedIn">LOGIN</a></li>
               <li><a class="dropdown-item"  routerLink="blog">CONTENT</a></li>
-              <li><a class="dropdown-item"  (click)="triggerLogout()" >LOGOUT</a></li>
+              <li><a class="dropdown-item"  (click)="triggerLogout()" [hidden]="!isLoggedIn">LOGOUT</a></li>
             </ul>
           </li>
           <li class="nav-item">

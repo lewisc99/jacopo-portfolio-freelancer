@@ -1,12 +1,13 @@
+
 <div class="container-child-inactive">     
     <h1 class="gradient-color text-center">BLOG</h1>
-    <button class="btn btn-click" routerLink="create">New article</button>
+    <button class="btn btn-click" routerLink="create" [hidden]="isLoggedOut">New article</button>
     <div class="row d-flex col-lg-12 mt-5">
         <div class="services-items col-lg-12 flex-wrap d-flex align-content-center justify-content-center">
               <div class="card col-lg-8" *ngFor="let article of articlesDTO?._embedded">
                 <div class="article-change">
-                  <button class="btn btn-click" (click)="onUpdate(article.id)">Edit</button>
-                  <button class="btn btn-click btn-click-danger ml-4" (click)="onDelete(article.id)">Remove</button>
+                  <button class="btn btn-click" (click)="onUpdate(article.id)" [hidden]="isLoggedOut">Edit</button>
+                  <button class="btn btn-click btn-click-danger ml-4" (click)="onDelete(article.id)" [hidden]="isLoggedOut">Remove</button>
                 </div>
                 <div class="card-body  d-flex flex-column justify-content-evenly align-items-start">
                 <div class="card-image">

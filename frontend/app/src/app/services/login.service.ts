@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environment/environment.test';
 import { Login } from '../domain/entities/login';
 import { TokenDto } from '../domain/dtos/tokenDto';
-import { Observable, catchError, map, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, throwError } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
@@ -13,8 +13,7 @@ import { TokenStorageService } from './token-storage.service';
 export class LoginService {
 
   private fullURL = environment.article_URL;
-
-  constructor(private httpClient:HttpClient, private router:Router, private tokenStorageService:TokenStorageService) { }
+  constructor(private httpClient:HttpClient, private tokenStorageService:TokenStorageService) { }
 
   public login(login:Login): Observable<TokenDto>
   {
@@ -34,8 +33,10 @@ export class LoginService {
   public logout(): Observable<any>
   {
     let logoutURL = this.fullURL + "logout";
-    return this.httpClient.post(logoutURL,{}).pipe(
-      
+    return this.httpClient.post(logoutURL, {}).pipe(
+      map(
+       () => this.tokenStorageService.cleanToken()
+      ),
       catchError(error => throwError(() => this.handleErrorException(error)))
     )
   }

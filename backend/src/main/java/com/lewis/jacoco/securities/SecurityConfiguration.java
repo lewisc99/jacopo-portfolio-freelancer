@@ -4,6 +4,7 @@ import com.lewis.jacoco.filters.JWTAuthenticationFilter;
 import com.lewis.jacoco.filters.JWTAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -36,11 +37,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception
     {
         http.cors().and().httpBasic().and().csrf().disable().authorizeRequests()
-
-                .antMatchers("/").permitAll()
-                .antMatchers("/h2-console/").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/v1/article").permitAll() //permit only http get method to any unauthenticated user.
+                .antMatchers(HttpMethod.PUT,"/api/v1/**").hasAuthority("USER")
+                .antMatchers(HttpMethod.POST,"/api/v1/**").hasAuthority("USER")
+                .antMatchers(HttpMethod.DELETE,"/api/v1/**").hasAuthority("USER")
+                .antMatchers("/h2-console/").hasAuthority("USER")
+                .and().authorizeRequests().antMatchers().permitAll()
                 .antMatchers("/login").permitAll().anyRequest().authenticated().
-                 and().logout().logoutUrl("/api/v1/logout").clearAuthentication(true)
+                 and().logout().logoutUrl("/api/v1/logout").clearAuthentication(true).logoutSuccessHandler(
+                         (request, response, authentication) -> {
+                             response.setStatus(204); //after logout return a 204 http status response.
+                         }
+                )
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager()))
@@ -51,6 +59,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
                         });
     }
+
+
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {

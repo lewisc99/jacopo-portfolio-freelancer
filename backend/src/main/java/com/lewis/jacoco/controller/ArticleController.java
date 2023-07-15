@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("api/v1/article")
 public class ArticleController {
 
     @Autowired
@@ -33,17 +33,12 @@ public class ArticleController {
        return ResponseEntity.ok().body(articleService.findAll(pageModel));
     }
 
-    @GetMapping("ola")
-    public ResponseEntity<String> get() {
-        return ResponseEntity.ok().body("Ola Mundo");
-    }
-
-
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ArticleDto> getById(@PathVariable UUID id) {
         Article article = articleService.getById(id);
         return ResponseEntity.ok().body(convertArticleToArticleDto(article));
     }
+
 
     private ArticleDto convertArticleToArticleDto(Article article) {
         ArticleDto articleDto = new ArticleDto();

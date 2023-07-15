@@ -1,32 +1,33 @@
-import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { TokenDto } from "../domain/dtos/tokenDto";
-
-
+import { Injectable } from '@angular/core';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-
   export class TokenStorageService {
   
     private storageToken:Storage = localStorage;
     public isTokenValid$:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   
+    getPopupSource() { 
+      return this.isTokenValid$.asObservable();
+   }
+
     constructor() { 
+      this.getToken();
     }
-  
+
     public saveToken(token:TokenDto)
     {
       this.storageToken.setItem("token",JSON.stringify(token));
-     
       this.isTokenValid$.next(true);
     }
   
     private autoLogout(token:TokenDto)
     {
       let currentDate = Date.now();
-      let expirationDate = Date.parse(token.expirationToken);
+      let expirationDate = token.expirationToken;
       if (currentDate >= expirationDate)
       {
           this.cleanToken();

@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../services/article.service';
 import { ArticlesDTO, PageModel } from 'src/app/domain/entities/article';
 import { Router } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-blog',
@@ -15,11 +16,18 @@ export class BlogComponent implements OnInit {
   public articlesDTO!:ArticlesDTO;
   private lastPage:number = 0;
   private pageRequest = new PageModel();
-  constructor(private articleService: ArticleService, private router:Router) {}
+  public isLoggedOut = false;
+  constructor(private articleService: ArticleService, private router:Router, private _tokenService:TokenStorageService,
+    private titleService:Title) {
+      this.titleService.setTitle("Blog");
+    }
   
   ngOnInit(): void {
       this.loading = true;
       this.getAll();
+      this._tokenService.isTokenValid$.subscribe(
+       async result => this.isLoggedOut =  !result
+      )
   }
 
   public getAll(page?:number):void {
@@ -64,7 +72,7 @@ export class BlogComponent implements OnInit {
         next: () => {
             this.loading = false;
             this.getAll();
-        }
+        }, error: (errorMessage) => alert(errorMessage)
       })
   }
 
