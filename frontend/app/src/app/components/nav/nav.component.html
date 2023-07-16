@@ -1,46 +1,86 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="../assets/main/nav-brand.png"  alt="" width="200" height="50"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center align-items-center " id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#begin">INICIO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">QUEM SOU</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#services">SERVIÇOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#references">REFERÊNCIAS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contacts">CONTATO</a>
-          </li>
-          <li class="nav-item dropdown nav-dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              BLOG
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item"  routerLink="login" [hidden]="isLoggedIn">LOGIN</a></li>
-              <li><a class="dropdown-item"  routerLink="blog">CONTENT</a></li>
-              <li><a class="dropdown-item"  (click)="triggerLogout()" [hidden]="!isLoggedIn">LOGOUT</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-             <select name="idioms" id="idioms" class="form-select nav-select">
-              <option selected>IDIOMAS</option>
-              <option>PORTUGUESE</option>
-              <option>ENGLISH</option>
-              <option>SPANISH</option>
-              <option>ITALIAN</option>
-             </select>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"
+      ><img src="../assets/main/nav-brand.png" alt="" width="200" height="50"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-center align-items-center"
+      id="navbarNavDropdown"
+    >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#begin">{{
+            "nav.begin" | translate
+          }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">{{ "nav.howIam" | translate }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">{{
+            "nav.services" | translate
+          }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#references">{{
+            "nav.references" | translate
+          }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contacts">{{
+            "nav.contact" | translate
+          }}</a>
+        </li>
+        <li class="nav-item dropdown nav-dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            BLOG
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" routerLink="login" [hidden]="isLoggedIn"
+                >LOGIN</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="blog">{{
+                "nav.content" | translate
+              }}</a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="triggerLogout()"
+                [hidden]="!isLoggedIn"
+                >LOGOUT</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <select name="idioms" id="idioms" class="form-select nav-select">
+            <option selected>IDIOMAS</option>
+            <option *ngFor="let item of idiomsList" [value]="item.value">{{item.idiom}}</option>
+          </select>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

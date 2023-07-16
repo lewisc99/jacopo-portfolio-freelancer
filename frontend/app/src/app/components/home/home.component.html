@@ -1,94 +1,193 @@
 <section class="begin d-flex" id="begin">
-    <div class="row d-flex col-lg-12">
-        <div class="col-lg-7  d-flex flex-column justify-content-center align-items-start">
-          <h1 class="gradient-color"><span>Jacopo Giancaspro</span></h1>
-          <h5>Professional semiologist</h5>
-          <button class="btn btn-click btn-lg-12">Quem Sou</button>
-        </div>
-        <div class="col-lg-5 d-flex flex-column justify-content-center align-items-start">
-          <img class="img-profile" src="../assets/main/profile.png" alt="profile-image" />
-        </div>
+  <div class="row d-flex col-lg-12">
+    <div
+      class="col-lg-7 d-flex flex-column justify-content-center align-items-start"
+    >
+      <h1 class="gradient-color"><span>Jacopo Giancaspro</span></h1>
+      <h5>{{ "begin.title" | translate }}</h5>
+      <button class="btn btn-click btn-lg-12">
+        {{ "begin.whoIam" | translate }}
+      </button>
     </div>
-  </section>
-  <section class="about d-flex" id="about">
-    <div class="row d-flex col-lg-12">
-        <div class="col-lg-12  d-flex flex-column justify-content-center align-items-start">
-            <p class="introduce">Introduce</p>
-            <h1 class="gradient-color">About me</h1>
-            <p>
-              <code>Systemic-semiotic consulting for Personal 
-              Branding and Brand Activism.</code> <br> Through applied semiotics, 
-              my commitment is to make a qualitative contribution <br>
-              to the communication <br> and the emotional intelligence
-              of professionals and students.
+    <div
+      class="col-lg-5 d-flex flex-column justify-content-center align-items-start"
+    >
+      <img
+        class="img-profile"
+        src="../assets/main/profile.png"
+        alt="profile-image"
+      />
+    </div>
+  </div>
+</section>
+<section class="about d-flex" id="about">
+  <div class="row d-flex col-lg-12">
+    <div
+      class="col-lg-12 d-flex flex-column justify-content-center align-items-start"
+    >
+      <p class="introduce">Introduce</p>
+      <h1 class="gradient-color">{{ "about.aboutMe" | translate }}</h1>
+      <p>
+        <code>{{ "about.textHighlight" | translate }}</code> <br />
+        {{ "about.text" | translate }}
+      </p>
+      <button class="btn btn-click btn-lg-12">
+        {{ "about.download" | translate }}
+      </button>
+      <div class="semiotical-logo"></div>
+    </div>
+  </div>
+</section>
+<section class="services d-flex" id="services">
+  <div class="row d-flex col-lg-12">
+    <div
+      class="col-lg-12 d-flex flex-column justify-content-start align-items-center flex-wrap"
+    >
+      <h1 class="gradient-color mt-8">{{ "services.title" | translate }}</h1>
+      <div
+        class="services-items col-lg-12 flex-wrap d-flex justify-content-evenly"
+      >
+        <div class="card col-lg-5">
+          <div
+            class="card-body d-flex flex-column justify-content-evenly align-items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="100"
+              height="100"
+              viewBox="0 0 50 50"
+              fill="white"
+            >
+              <path
+                d="M 5 5 C 2.25 5 0 7.25 0 10 L 0 39 C 0 41.75 2.25 44 5 44 L 21 44 C 22.664063 44 24 45.351563 24 47 C 24 47.308594 24.144531 47.601563 24.386719 47.789063 C 24.632813 47.980469 24.949219 48.046875 25.25 47.96875 C 25.511719 47.902344 25.738281 47.734375 25.875 47.5 C 25.960938 47.347656 26.003906 47.175781 26 47 C 26 45.351563 27.335938 44 29 44 L 45 44 C 47.75 44 50 41.75 50 39 L 50 10 C 50 7.25 47.75 5 45 5 L 29 5 C 27.367188 5 25.914063 5.8125 25 7.03125 C 24.085938 5.8125 22.632813 5 21 5 Z M 5 7 L 21 7 C 22.667969 7 24 8.332031 24 10 L 24 43.125 C 23.152344 42.464844 22.148438 42 21 42 L 5 42 C 3.332031 42 2 40.667969 2 39 L 2 10 C 2 8.332031 3.332031 7 5 7 Z M 29 7 L 45 7 C 46.667969 7 48 8.332031 48 10 L 48 39 C 48 40.667969 46.667969 42 45 42 L 29 42 C 27.851563 42 26.847656 42.464844 26 43.125 L 26 10 C 26 8.332031 27.332031 7 29 7 Z"
+              ></path>
+            </svg>
+            <h3 class="card-title">Special title treatment</h3>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
             </p>
-            <button class="btn btn-click btn-lg-12">Download CV</button>
-            <div class="semiotical-logo"></div>
+          </div>
         </div>
-    </div>
-  </section>
-  <section class="services d-flex" id="services">
-    <div class="row d-flex col-lg-12">
-        <div class="col-lg-12 d-flex flex-column justify-content-start align-items-center flex-wrap">
-            <h1 class="gradient-color mt-8">Meus Serviços</h1>
-            <div class="services-items col-lg-12 flex-wrap d-flex justify-content-evenly">
-              <div class="card col-lg-5">
-                <div class="card-body d-flex flex-column justify-content-evenly align-items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50" fill="white">
-                    <path d="M 5 5 C 2.25 5 0 7.25 0 10 L 0 39 C 0 41.75 2.25 44 5 44 L 21 44 C 22.664063 44 24 45.351563 24 47 C 24 47.308594 24.144531 47.601563 24.386719 47.789063 C 24.632813 47.980469 24.949219 48.046875 25.25 47.96875 C 25.511719 47.902344 25.738281 47.734375 25.875 47.5 C 25.960938 47.347656 26.003906 47.175781 26 47 C 26 45.351563 27.335938 44 29 44 L 45 44 C 47.75 44 50 41.75 50 39 L 50 10 C 50 7.25 47.75 5 45 5 L 29 5 C 27.367188 5 25.914063 5.8125 25 7.03125 C 24.085938 5.8125 22.632813 5 21 5 Z M 5 7 L 21 7 C 22.667969 7 24 8.332031 24 10 L 24 43.125 C 23.152344 42.464844 22.148438 42 21 42 L 5 42 C 3.332031 42 2 40.667969 2 39 L 2 10 C 2 8.332031 3.332031 7 5 7 Z M 29 7 L 45 7 C 46.667969 7 48 8.332031 48 10 L 48 39 C 48 40.667969 46.667969 42 45 42 L 29 42 C 27.851563 42 26.847656 42.464844 26 43.125 L 26 10 C 26 8.332031 27.332031 7 29 7 Z"></path>
-                    </svg>
-                  <h3 class="card-title">Special title treatment</h3>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                </div>
-              </div>
-              <div class="card col-lg-5">
-                <div class="card-body d-flex flex-column justify-content-evenly align-items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50" fill="white">
-                    <path d="M 5 5 C 2.25 5 0 7.25 0 10 L 0 39 C 0 41.75 2.25 44 5 44 L 21 44 C 22.664063 44 24 45.351563 24 47 C 24 47.308594 24.144531 47.601563 24.386719 47.789063 C 24.632813 47.980469 24.949219 48.046875 25.25 47.96875 C 25.511719 47.902344 25.738281 47.734375 25.875 47.5 C 25.960938 47.347656 26.003906 47.175781 26 47 C 26 45.351563 27.335938 44 29 44 L 45 44 C 47.75 44 50 41.75 50 39 L 50 10 C 50 7.25 47.75 5 45 5 L 29 5 C 27.367188 5 25.914063 5.8125 25 7.03125 C 24.085938 5.8125 22.632813 5 21 5 Z M 5 7 L 21 7 C 22.667969 7 24 8.332031 24 10 L 24 43.125 C 23.152344 42.464844 22.148438 42 21 42 L 5 42 C 3.332031 42 2 40.667969 2 39 L 2 10 C 2 8.332031 3.332031 7 5 7 Z M 29 7 L 45 7 C 46.667969 7 48 8.332031 48 10 L 48 39 C 48 40.667969 46.667969 42 45 42 L 29 42 C 27.851563 42 26.847656 42.464844 26 43.125 L 26 10 C 26 8.332031 27.332031 7 29 7 Z"></path>
-                    </svg>
-                  <h3 class="card-title">Special title treatment</h3>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                </div>
-              </div>
-              <div class="card col-lg-5">
-                <div class="card-body d-flex flex-column justify-content-evenly align-items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50" fill="white">
-                    <path d="M 5 5 C 2.25 5 0 7.25 0 10 L 0 39 C 0 41.75 2.25 44 5 44 L 21 44 C 22.664063 44 24 45.351563 24 47 C 24 47.308594 24.144531 47.601563 24.386719 47.789063 C 24.632813 47.980469 24.949219 48.046875 25.25 47.96875 C 25.511719 47.902344 25.738281 47.734375 25.875 47.5 C 25.960938 47.347656 26.003906 47.175781 26 47 C 26 45.351563 27.335938 44 29 44 L 45 44 C 47.75 44 50 41.75 50 39 L 50 10 C 50 7.25 47.75 5 45 5 L 29 5 C 27.367188 5 25.914063 5.8125 25 7.03125 C 24.085938 5.8125 22.632813 5 21 5 Z M 5 7 L 21 7 C 22.667969 7 24 8.332031 24 10 L 24 43.125 C 23.152344 42.464844 22.148438 42 21 42 L 5 42 C 3.332031 42 2 40.667969 2 39 L 2 10 C 2 8.332031 3.332031 7 5 7 Z M 29 7 L 45 7 C 46.667969 7 48 8.332031 48 10 L 48 39 C 48 40.667969 46.667969 42 45 42 L 29 42 C 27.851563 42 26.847656 42.464844 26 43.125 L 26 10 C 26 8.332031 27.332031 7 29 7 Z"></path>
-                    </svg>
-                  <h3 class="card-title">Special title treatment</h3>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                </div>
-              </div>
-              <div class="card col-lg-5">
-                <div class="card-body d-flex flex-column justify-content-evenly align-items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50" fill="white">
-                    <path d="M 5 5 C 2.25 5 0 7.25 0 10 L 0 39 C 0 41.75 2.25 44 5 44 L 21 44 C 22.664063 44 24 45.351563 24 47 C 24 47.308594 24.144531 47.601563 24.386719 47.789063 C 24.632813 47.980469 24.949219 48.046875 25.25 47.96875 C 25.511719 47.902344 25.738281 47.734375 25.875 47.5 C 25.960938 47.347656 26.003906 47.175781 26 47 C 26 45.351563 27.335938 44 29 44 L 45 44 C 47.75 44 50 41.75 50 39 L 50 10 C 50 7.25 47.75 5 45 5 L 29 5 C 27.367188 5 25.914063 5.8125 25 7.03125 C 24.085938 5.8125 22.632813 5 21 5 Z M 5 7 L 21 7 C 22.667969 7 24 8.332031 24 10 L 24 43.125 C 23.152344 42.464844 22.148438 42 21 42 L 5 42 C 3.332031 42 2 40.667969 2 39 L 2 10 C 2 8.332031 3.332031 7 5 7 Z M 29 7 L 45 7 C 46.667969 7 48 8.332031 48 10 L 48 39 C 48 40.667969 46.667969 42 45 42 L 29 42 C 27.851563 42 26.847656 42.464844 26 43.125 L 26 10 C 26 8.332031 27.332031 7 29 7 Z"></path>
-                    </svg>
-                  <h3 class="card-title">Special title treatment</h3>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                </div>
-              </div>
-            </div>
+        <div class="card col-lg-5">
+          <div
+            class="card-body d-flex flex-column justify-content-evenly align-items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="100"
+              height="100"
+              viewBox="0 0 50 50"
+              fill="white"
+            >
+              <path
+                d="M 5 5 C 2.25 5 0 7.25 0 10 L 0 39 C 0 41.75 2.25 44 5 44 L 21 44 C 22.664063 44 24 45.351563 24 47 C 24 47.308594 24.144531 47.601563 24.386719 47.789063 C 24.632813 47.980469 24.949219 48.046875 25.25 47.96875 C 25.511719 47.902344 25.738281 47.734375 25.875 47.5 C 25.960938 47.347656 26.003906 47.175781 26 47 C 26 45.351563 27.335938 44 29 44 L 45 44 C 47.75 44 50 41.75 50 39 L 50 10 C 50 7.25 47.75 5 45 5 L 29 5 C 27.367188 5 25.914063 5.8125 25 7.03125 C 24.085938 5.8125 22.632813 5 21 5 Z M 5 7 L 21 7 C 22.667969 7 24 8.332031 24 10 L 24 43.125 C 23.152344 42.464844 22.148438 42 21 42 L 5 42 C 3.332031 42 2 40.667969 2 39 L 2 10 C 2 8.332031 3.332031 7 5 7 Z M 29 7 L 45 7 C 46.667969 7 48 8.332031 48 10 L 48 39 C 48 40.667969 46.667969 42 45 42 L 29 42 C 27.851563 42 26.847656 42.464844 26 43.125 L 26 10 C 26 8.332031 27.332031 7 29 7 Z"
+              ></path>
+            </svg>
+            <h3 class="card-title">Special title treatment</h3>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+          </div>
         </div>
+        <div class="card col-lg-5">
+          <div
+            class="card-body d-flex flex-column justify-content-evenly align-items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="100"
+              height="100"
+              viewBox="0 0 50 50"
+              fill="white"
+            >
+              <path
+                d="M 5 5 C 2.25 5 0 7.25 0 10 L 0 39 C 0 41.75 2.25 44 5 44 L 21 44 C 22.664063 44 24 45.351563 24 47 C 24 47.308594 24.144531 47.601563 24.386719 47.789063 C 24.632813 47.980469 24.949219 48.046875 25.25 47.96875 C 25.511719 47.902344 25.738281 47.734375 25.875 47.5 C 25.960938 47.347656 26.003906 47.175781 26 47 C 26 45.351563 27.335938 44 29 44 L 45 44 C 47.75 44 50 41.75 50 39 L 50 10 C 50 7.25 47.75 5 45 5 L 29 5 C 27.367188 5 25.914063 5.8125 25 7.03125 C 24.085938 5.8125 22.632813 5 21 5 Z M 5 7 L 21 7 C 22.667969 7 24 8.332031 24 10 L 24 43.125 C 23.152344 42.464844 22.148438 42 21 42 L 5 42 C 3.332031 42 2 40.667969 2 39 L 2 10 C 2 8.332031 3.332031 7 5 7 Z M 29 7 L 45 7 C 46.667969 7 48 8.332031 48 10 L 48 39 C 48 40.667969 46.667969 42 45 42 L 29 42 C 27.851563 42 26.847656 42.464844 26 43.125 L 26 10 C 26 8.332031 27.332031 7 29 7 Z"
+              ></path>
+            </svg>
+            <h3 class="card-title">Special title treatment</h3>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+          </div>
+        </div>
+        <div class="card col-lg-5">
+          <div
+            class="card-body d-flex flex-column justify-content-evenly align-items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="100"
+              height="100"
+              viewBox="0 0 50 50"
+              fill="white"
+            >
+              <path
+                d="M 5 5 C 2.25 5 0 7.25 0 10 L 0 39 C 0 41.75 2.25 44 5 44 L 21 44 C 22.664063 44 24 45.351563 24 47 C 24 47.308594 24.144531 47.601563 24.386719 47.789063 C 24.632813 47.980469 24.949219 48.046875 25.25 47.96875 C 25.511719 47.902344 25.738281 47.734375 25.875 47.5 C 25.960938 47.347656 26.003906 47.175781 26 47 C 26 45.351563 27.335938 44 29 44 L 45 44 C 47.75 44 50 41.75 50 39 L 50 10 C 50 7.25 47.75 5 45 5 L 29 5 C 27.367188 5 25.914063 5.8125 25 7.03125 C 24.085938 5.8125 22.632813 5 21 5 Z M 5 7 L 21 7 C 22.667969 7 24 8.332031 24 10 L 24 43.125 C 23.152344 42.464844 22.148438 42 21 42 L 5 42 C 3.332031 42 2 40.667969 2 39 L 2 10 C 2 8.332031 3.332031 7 5 7 Z M 29 7 L 45 7 C 46.667969 7 48 8.332031 48 10 L 48 39 C 48 40.667969 46.667969 42 45 42 L 29 42 C 27.851563 42 26.847656 42.464844 26 43.125 L 26 10 C 26 8.332031 27.332031 7 29 7 Z"
+              ></path>
+            </svg>
+            <h3 class="card-title">Special title treatment</h3>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
-  <section class="references" id="references">
-    <div class="row col-lg-12 d-flex ">
-        <div class="col-lg-12 d-flex flex-column">
-            <h1 class="gradient-color text-center">Referências</h1>
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-theme="dark">
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active d-flex align-content-center justify-content-center w-100 h-100 flex-column" data-bs-interval="10000">
-                    <img src="../assets/main/perfil-luiz.jpg" width="130px"/>
-                    <h5 class="mt-2">CLIENT NAME</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                </div>
-                 <!-- <div class="carousel-item active d-flex align-content-center justify-content-center w-100 h-100 flex-column" data-bs-interval="2000">
+  </div>
+</section>
+<section class="references" id="references">
+  <div class="row col-lg-12 d-flex">
+    <div class="col-lg-12 d-flex flex-column">
+      <h1 class="gradient-color text-center">Referências</h1>
+      <div
+        id="carouselExampleDark"
+        class="carousel carousel-dark slide"
+        data-bs-theme="dark"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleDark"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div
+            class="carousel-item active d-flex align-content-center justify-content-center w-100 h-100 flex-column"
+            data-bs-interval="10000"
+          >
+            <img src="../assets/main/perfil-luiz.jpg" width="130px" />
+            <h5 class="mt-2">CLIENT NAME</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+          <!-- <div class="carousel-item active d-flex align-content-center justify-content-center w-100 h-100 flex-column" data-bs-interval="2000">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the second slide.</p>
                 </div>
@@ -96,44 +195,68 @@
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the third slide.</p>
                 </div>  -->
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              </button>
-            </div>
         </div>
-    </div>
-  </section>
-  <section class="contacts" id="contacts">
-    <div class="row col-lg-12">
-        <div class="col-lg-12 flex-column">
-            <h1 class="gradient-color text-center">Contato</h1>
-        </div>
-    </div>
-    <div class="row col-lg-12 justify-content-center align-items-center">
-      <div class="col-lg-6 d-flex justify-content-evenly flex-wrap align-items-center">
-          <a href="#"><img src="../assets/main/logos/facebook.svg"/></a>
-          <a ><img src="../assets/main/logos/instagram.svg" /></a>
-          <a ><img src="../assets/main/logos/linkedin.svg" /></a>
-          <a ><img src="../assets/main/logos/spotify.svg" /></a>
-          <a ><img src="../assets/main/logos/twitter.svg" /></a>
-          <a ><img src="../assets/main/logos/whatsapp.svg" /></a>
-          <a ><img src="../assets/main/logos/youtube.svg" /></a>
-          <a ><img src="../assets/main/logos/tiktok.svg" /></a>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleDark"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
       </div>
+    </div>
+  </div>
+</section>
+<section class="contacts" id="contacts">
+  <div class="row col-lg-12">
+    <div class="col-lg-12 flex-column">
+      <h1 class="gradient-color text-center">
+        {{ "contact.title" | translate }}
+      </h1>
+    </div>
+  </div>
+  <div class="row col-lg-12 justify-content-center align-items-center">
+    <div
+      class="col-lg-6 d-flex justify-content-evenly flex-wrap align-items-center"
+    >
+      <a href="#"><img src="../assets/main/logos/facebook.svg" /></a>
+      <a><img src="../assets/main/logos/instagram.svg" /></a>
+      <a><img src="../assets/main/logos/linkedin.svg" /></a>
+      <a><img src="../assets/main/logos/spotify.svg" /></a>
+      <a><img src="../assets/main/logos/twitter.svg" /></a>
+      <a><img src="../assets/main/logos/whatsapp.svg" /></a>
+      <a><img src="../assets/main/logos/youtube.svg" /></a>
+      <a><img src="../assets/main/logos/tiktok.svg" /></a>
+    </div>
   </div>
   <div class="row justify-content-center align-items-center mt-5">
     <div class="col-lg-6">
       <div class="form-group">
-        <input type="text" placeholder="Name" class="form-control" />
+        <input
+          type="text"
+          placeholder="{{ 'contact.messageToSend.name' | translate }}"
+          class="form-control"
+        />
       </div>
       <div class="form-group mt-3">
-        <textarea placeholder="Mensagem" class="form-control mb-3" rows="8"></textarea>
-        <button class="btn btn-click btn-lg-12">Enviar</button>
+        <textarea
+          placeholder="{{ 'contact.messageToSend.message' | translate }}"
+          class="form-control mb-3"
+          rows="8"
+        ></textarea>
+        <button class="btn btn-click btn-lg-12">
+          {{ "contact.messageToSend.send" | translate }}
+        </button>
       </div>
-   </div>
+    </div>
   </div>
-  </section>
+</section>

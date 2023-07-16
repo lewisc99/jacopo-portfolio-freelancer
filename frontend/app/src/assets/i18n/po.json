@@ -1,0 +1,51 @@
+{
+	"idioms": [
+		 {"idiom":"Português", "value":0},
+		 {"idiom":"Inglês", "value":1},
+		 {"idiom":"Espanhol", "value":2},
+		 {"idiom":"Italiano", "value":3}
+	],
+
+	"nav": {
+		"begin":"início",
+		"howIam":"Quem Sou",
+		"services":"Serviços",
+		"references":"Referências",
+		"contact":"Contato",
+		"content":"Conteúdo"
+	},
+	"begin":{
+		"title":"Semiólogo profissional",
+		"whoIam":"Quem Sou"
+	},
+
+	"about": {
+		"aboutMe":"sobre Mim",
+		"textHighlight":"Consultoria sistêmico-semiótica para desenvolver conteúdos social para Personal Branding  e Brand Activism.",
+		"text":"Por meio de uma semiótica aplicada, meu compromisso é dar uma contribuição qualitativa para a comunicação do profissional.",
+		"download":"Baixar CV"
+	},
+	"services":{
+		"title":"Meus Serviços"
+	},
+	"references":{
+		"title":"Referências"
+	},
+	"contact":{
+		"title":"Contato",
+		"messageToSend": {
+			"name":"Nome",
+			"message":"Mensagem",
+			"send":"Enviar"
+		}
+	},
+	"login": {
+		"name":"Adicione um Nome",
+		"password":"Adicione uma Senha"
+	},
+	"article": {
+		"previous":"Anterior",
+		"next":"Próximo"
+	}
+
+}

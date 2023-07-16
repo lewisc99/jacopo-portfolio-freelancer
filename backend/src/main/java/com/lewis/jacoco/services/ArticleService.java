@@ -4,7 +4,6 @@ import com.lewis.jacoco.domain.dto.ArticlesDto;
 import com.lewis.jacoco.domain.entities.Article;
 import com.lewis.jacoco.domain.request.ArticleRequest;
 import com.lewis.jacoco.domain.request.PageModel;
-
 import java.util.UUID;
 
 public interface ArticleService {

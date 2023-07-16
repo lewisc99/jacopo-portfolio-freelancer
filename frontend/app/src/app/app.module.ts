@@ -8,11 +8,13 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { BlogCreateComponent } from './components/blog-create/blog-create.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogUpdateComponent } from './components/blog-update/blog-update.component';
 import { AuthGuard } from './shared/auth-guards/auth.guard';
 import { TokenInterceptor } from './shared/interceptor/token-interceptor.interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,23 @@ import { TokenInterceptor } from './shared/interceptor/token-interceptor.interce
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-		HttpClientModule,
 		ReactiveFormsModule,
-		FormsModule
+		FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true}, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpTranslateLoader(http: HttpClient)
+{
+     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
