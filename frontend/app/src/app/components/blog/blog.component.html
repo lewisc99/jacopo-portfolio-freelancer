@@ -29,11 +29,11 @@
         <nav aria-label="Page navigation example" class="mt-4">
             <ul class="pagination justify-content-center pagination-lg">
               <li class="page-item">
-                <a class="page-link previous" tabindex="-1" id="previous" (click)="previousAndNextPaginated(false)">Previous</a>
+                <a class="page-link previous" tabindex="-1" id="previous" (click)="previousAndNextPaginated(false)">{{ "article.previous" | translate }}</a>
               </li>
               <li class="page-item" *ngFor="let item of [].constructor(articlesDTO?.totalPages); let i = index"><a class="page-link" id="page-item-{{i}}" (click)="getAll(i)">{{i + 1}}</a></li>
               <li class="page-item">
-                <a class="page-link" id="next" (click)="previousAndNextPaginated(true)">Next</a>
+                <a class="page-link" id="next" (click)="previousAndNextPaginated(true)">{{ "article.next" | translate }}</a>
               </li>
             </ul>
           </nav>

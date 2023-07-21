@@ -55,7 +55,7 @@ code {
 
 
 #services {
-    height: 800px;
+    height: auto;
 
     h1 {
         font-size: 7rem; 
@@ -63,6 +63,7 @@ code {
     } 
     .card {
         height: 300px !important;
+        width: 45%;
         margin-bottom: 10px;
         background-color: var( --bkg-container);
         box-shadow: var(--box-shadow);
@@ -188,6 +189,10 @@ code {
     #services {
         margin-top: 20px;
         height: auto;
+
+        .card {
+            width: 90%;
+        }
     }
     #references {
         height: auto;
@@ -270,4 +275,18 @@ code {
         } 
     }
     
+}
+
+.carousel-item {
+    align-items: center !important;
+    justify-content: center !important;
+    width:100% !important;
+}
+.carousel-item-inner {
+    width: 70% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex !important;
+    flex-direction: column;
+    height: auto !important;
 }
