@@ -15,7 +15,7 @@
                 </div>
                   <h3 class="card-title">{{article.title}}</h3>
                   <p class="card-text">{{article.text}}</p>
-                  <a [href]="article.articleLink" target="_blank">{{article.articleLink}}</a>
+                  <a [href]="article.articleLink" target="_blank">{{article.articleLink | slice : 0 : 40}}</a>
                 </div>
               </div>
               <div
