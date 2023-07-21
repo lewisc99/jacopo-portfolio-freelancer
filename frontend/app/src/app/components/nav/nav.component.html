@@ -75,9 +75,16 @@
           </ul>
         </li>
         <li class="nav-item">
-          <select name="idioms" id="idioms" class="form-select nav-select">
-            <option selected>IDIOMAS</option>
-            <option *ngFor="let item of idiomsList" [value]="item.value">{{item.idiom}}</option>
+          <select
+            name="idioms"
+            id="idioms"
+            class="form-select nav-select"
+            (change)="toggleIdiom($event.target)"
+          >
+            <option selected>{{ "idiomsTitle" | translate }}</option>
+            <option *ngFor="let item of idiomsList" [value]="item.value" id="idiom">
+              {{ item.idiom }}
+            </option>
           </select>
         </li>
       </ul>

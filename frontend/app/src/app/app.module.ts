@@ -42,7 +42,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     })
   ],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true}, AuthGuard],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true}, AuthGuard, TranslateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

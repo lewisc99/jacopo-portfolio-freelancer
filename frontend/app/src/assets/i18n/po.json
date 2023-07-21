@@ -1,4 +1,5 @@
 {
+	"idiomsTitle":"Idiomas",
 	"idioms": [
 		 {"idiom":"Português", "value":0},
 		 {"idiom":"Inglês", "value":1},

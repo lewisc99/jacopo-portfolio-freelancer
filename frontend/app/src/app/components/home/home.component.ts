@@ -1,5 +1,12 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -7,7 +14,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild('name', { static: false }) public name: ElementRef =
     new ElementRef({});
   @ViewChild('text', { static: false }) public text: ElementRef =
@@ -15,22 +22,48 @@ export class HomeComponent implements OnInit {
   public servicesList: any[] = [];
   public referencesList: any[] = [];
   lastIndex: number = 0;
+  changeTranslationSubscription: Subscription;
 
   idiomsSubscrition: Subscription = new Subscription();
-  constructor(private _translate: TranslateService) {
-    this._translate.setDefaultLang('po');
+  constructor(
+    private _translate: TranslateService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle('Home');
   }
+
   ngOnInit(): void {
+    this.initializeDefaultComponentTranslation();
+    this.changeTranslation();
+  }
+
+  ngOnDestroy(): void {
+    this.changeTranslationSubscription.unsubscribe();
+  }
+
+  initializeDefaultComponentTranslation() {
     this._translate.get('services.items').subscribe({
       next: (data) => {
         this.servicesList = data;
       },
-    });
-    this._translate.get('references.items').subscribe({
-      next: (data) => {
-        this.referencesList = data;
-      },
-    });
+    }),
+      this._translate.get('references.items').subscribe({
+        next: (data) => {
+          this.referencesList = data;
+        },
+      });
+  }
+
+  changeTranslation() {
+    // this._translate.onLangChange.subscribe( ((event: LangChangeEvent) =>
+    // {
+    //   this._translate.use(event.lang)
+    //   this.initializeDefaultComponentTranslation()
+    // }));
+
+    this.changeTranslationSubscription = this._translate.onLangChange.subscribe(
+      () => this.initializeDefaultComponentTranslation()
+    );
   }
 
   sendMessageWhatsapp() {
