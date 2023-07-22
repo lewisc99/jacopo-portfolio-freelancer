@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ArticleService } from '../../services/article.service';
 import { ArticlesDTO, PageModel } from 'src/app/domain/entities/article';
 import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { Title } from '@angular/platform-browser';
-import { Subscription, take, takeLast, timeout } from 'rxjs';
+import { Subscription, takeLast } from 'rxjs';
 import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
@@ -12,16 +12,16 @@ import { NotificationService } from 'src/app/services/notification.service';
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss'],
 })
-export class BlogComponent implements OnInit {
+export class BlogComponent implements OnInit, OnDestroy {
   public loading: boolean = false;
   public articlesDTO!: ArticlesDTO;
   private lastPage: number = 0;
   private pageRequest = new PageModel();
   public isLoggedOut = false;
-  public notificationMessage:string = "";
+  public notificationMessage: string = '';
   public isNotificationHidden = true;
-  private createNotificationSubscription: Subscription = new Subscription();
-  intervalTime:any;
+  private createNotificationSubscription: Subscription;
+  intervalTime: any;
 
   constructor(
     private articleService: ArticleService,
@@ -32,6 +32,9 @@ export class BlogComponent implements OnInit {
   ) {
     this.titleService.setTitle('Blog');
   }
+  ngOnDestroy(): void {
+    this.createNotificationSubscription.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.loading = true;
@@ -39,24 +42,29 @@ export class BlogComponent implements OnInit {
     this._tokenService.isTokenValid$.subscribe(
       async (result) => (this.isLoggedOut = !result)
     );
+    this.createNotificationSubscription = new Subscription();
+    this.triggerSubscription();
+  }
 
+  triggerSubscription(): void {
     this.createNotificationSubscription =
-      this._notificationService.notificationMessage$.pipe(take(1)).subscribe({
-        next: (data) => {
-          if (data.type == 'create') {
+      this._notificationService.notificationMessage$.pipe().subscribe({
+        next: async (data) => {
+          if (data.type != null || data.type != undefined) {
+            debugger;
             let count = 0;
             this.isNotificationHidden = false;
             this.notificationMessage = data.message;
-           this.intervalTime = setInterval(() => {
+            this.intervalTime = setInterval(() => {
               count += 1;
-              document.getElementById("line-item")!.style.width = count + "%";
-               if (count == 100) {
+              document.getElementById('line-item')!.style.width = count + '%';
+              if (count == 100) {
                 clearInterval(this.intervalTime);
                 this.isNotificationHidden = true;
-               }
+              }
             }, 20);
           }
-        },
+        }
       });
   }
 

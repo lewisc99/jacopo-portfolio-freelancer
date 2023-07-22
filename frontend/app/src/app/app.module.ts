@@ -25,7 +25,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     HomeComponent,
     BlogComponent,
     BlogCreateComponent,
-    BlogUpdateComponent
+    BlogUpdateComponent,
   ],
   imports: [
     BrowserModule,

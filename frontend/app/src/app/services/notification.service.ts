@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotificationService {
+  private notificationMessageSource: Subject<any> = new BehaviorSubject<any>(
+    {}
+  );
+  public notificationMessage$ = this.notificationMessageSource.asObservable();
+  constructor() {
+    this.notificationMessageSource.asObservable();
+  }
 
-  public notificationMessage$:BehaviorSubject<any> = new BehaviorSubject<any>({});
-  constructor() { }
-
-  successTopRight(type:string, message: string) {
-		 this.notificationMessage$.next({
+  successTopRight(type: string, message: string) {
+    this.notificationMessageSource.next({
       type: type,
-      message:message
-     });
-	}
+      message: message,
+    });
+  }
 }

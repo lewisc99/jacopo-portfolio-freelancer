@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ArticleDTO } from 'src/app/domain/entities/article';
 import { ArticleService } from 'src/app/services/article.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-blog-update',
@@ -23,7 +24,8 @@ export class BlogUpdateComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private articleService: ArticleService,
-    private router: Router
+    private router: Router,
+    private _notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -111,6 +113,10 @@ export class BlogUpdateComponent implements OnInit, OnDestroy {
           next: () => {
             this.saving = false;
             this.formGroup.reset();
+            this._notificationService.successTopRight(
+              'create',
+              'New Item Updated'
+            );
             this.router.navigate(['../blog']);
           },
           error: (errorMessage) => alert(errorMessage),

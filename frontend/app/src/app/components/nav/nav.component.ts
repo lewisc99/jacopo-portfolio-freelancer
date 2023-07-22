@@ -37,7 +37,6 @@ export class NavComponent implements OnInit, OnDestroy {
       this.tokenStorageService.isTokenValid$.subscribe(async (data: any) => {
         this.isLoggedIn = data;
       });
-
     
     this.idiomsSubscrition = this._translate.get('idioms').subscribe({
       next: (result) => (this.idiomsList = result),
