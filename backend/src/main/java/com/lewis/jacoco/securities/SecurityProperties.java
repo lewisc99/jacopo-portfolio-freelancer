@@ -1,18 +1,20 @@
 package com.lewis.jacoco.securities;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties("security-constant")
 public class SecurityProperties {
 
-    private String key;
-    private String expiration;
+    private static String key;
+    private static String expiration;
+    private static String header;
 
-    private String header;
+    private static String origin;
 
-    public String getKey() {
+    public static String getKey() {
         return key;
     }
 
@@ -20,20 +22,24 @@ public class SecurityProperties {
         this.key = key;
     }
 
-    public Long getExpiration() {
+    public static Long getExpiration() {
         return Long.valueOf(expiration);
     }
 
-    public void setExpiration(String expiration) {
+    public  void setExpiration(String expiration) {
         this.expiration = expiration;
     }
 
-
-    public String getHeader() {
+    public static String getHeader() {
         return header;
     }
 
     public void setHeader(String header) {
         this.header = header;
     }
+
+    public static String getOrigin() {
+        return origin;
+    }
+
 }

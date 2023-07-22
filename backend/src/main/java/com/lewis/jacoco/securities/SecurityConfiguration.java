@@ -71,7 +71,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         corsConfiguration.addAllowedMethod("PUT");
         corsConfiguration.addAllowedMethod("DELETE");
         corsConfiguration.addAllowedHeader("");
-        corsConfiguration.addAllowedOrigin("*");
+        corsConfiguration.addAllowedOrigin(SecurityProperties.getOrigin());
         corsConfiguration.addAllowedHeader("*");
         source.registerCorsConfiguration("/**", corsConfiguration);
         return source;

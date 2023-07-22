@@ -9,7 +9,6 @@ import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.lewis.jacoco.domain.dto.TokenResponseDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -18,15 +17,12 @@ import java.util.*;
 @Component("JWTUtil")
 public class JWTUtil {
 
-    @Autowired
-    private static SecurityProperties securityProperties;
 
     public static TokenResponseDTO generateToken(String email, List<String> roles) throws IllegalArgumentException, JWTCreationException {
-
         Date issuedAt = new Date();
         Date expiresAt = new Date();
         LocalDateTime localTime = LocalDateTime.ofInstant(expiresAt.toInstant(), ZoneId.systemDefault());
-        LocalDateTime calculateExpiresAt = localTime.plusMinutes(15);
+        LocalDateTime calculateExpiresAt = localTime.plusMinutes(SecurityProperties.getExpiration());
         expiresAt = Date.from(calculateExpiresAt.atZone(ZoneId.systemDefault()).toInstant());
         TokenResponseDTO tokenResponseDTO = new TokenResponseDTO();
          String jwt =  JWT.create()
@@ -36,7 +32,7 @@ public class JWTUtil {
                 .withIssuedAt(issuedAt)
                 .withExpiresAt(expiresAt)
                 .withIssuer("lewis.com")
-                .sign(Algorithm.HMAC256("LEWIS-GYM-PROJECT-KEY"));
+                .sign(Algorithm.HMAC256(SecurityProperties.getKey()));
         tokenResponseDTO.setToken(jwt);
         tokenResponseDTO.setCreated(issuedAt);
         tokenResponseDTO.setExpirationToken(expiresAt);
@@ -50,7 +46,7 @@ public class JWTUtil {
         List<String> usernameList = new ArrayList<>();
         Claim roleClaim;
 
-        JWTVerifier verifier = JWT.require(Algorithm.HMAC256("LEWIS-GYM-PROJECT-KEY"))
+        JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SecurityProperties.getKey()))
                 .withSubject("lewis.com")
                 .withSubject("UserDetails")
                 .build();
