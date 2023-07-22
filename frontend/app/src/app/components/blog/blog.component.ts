@@ -4,6 +4,8 @@ import { ArticlesDTO, PageModel } from 'src/app/domain/entities/article';
 import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { Title } from '@angular/platform-browser';
+import { Subscription, take, takeLast, timeout } from 'rxjs';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-blog',
@@ -16,11 +18,17 @@ export class BlogComponent implements OnInit {
   private lastPage: number = 0;
   private pageRequest = new PageModel();
   public isLoggedOut = false;
+  public notificationMessage:string = "";
+  public isNotificationHidden = true;
+  private createNotificationSubscription: Subscription = new Subscription();
+  intervalTime:any;
+
   constructor(
     private articleService: ArticleService,
     private router: Router,
     private _tokenService: TokenStorageService,
-    private titleService: Title
+    private titleService: Title,
+    private _notificationService: NotificationService
   ) {
     this.titleService.setTitle('Blog');
   }
@@ -31,6 +39,25 @@ export class BlogComponent implements OnInit {
     this._tokenService.isTokenValid$.subscribe(
       async (result) => (this.isLoggedOut = !result)
     );
+
+    this.createNotificationSubscription =
+      this._notificationService.notificationMessage$.pipe(take(1)).subscribe({
+        next: (data) => {
+          if (data.type == 'create') {
+            let count = 0;
+            this.isNotificationHidden = false;
+            this.notificationMessage = data.message;
+           this.intervalTime = setInterval(() => {
+              count += 1;
+              document.getElementById("line-item")!.style.width = count + "%";
+               if (count == 100) {
+                clearInterval(this.intervalTime);
+                this.isNotificationHidden = true;
+               }
+            }, 20);
+          }
+        },
+      });
   }
 
   public getAll(page?: number): void {

@@ -68,5 +68,43 @@ a:hover {
         height: auto;
     }
   }
-
-  
+.alert-container {
+    position: relative;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    display: flex;
+}
+.alert-added {
+    transition: 3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    width: 250px;
+    height: 100px;
+    bottom: 0;
+    top: 10px;
+    margin-bottom: -50px;
+    flex-direction: column;
+    background-color: var(--bkg-container);
+    div.text {
+        height: 95%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        color: var(--main-font);
+    }
+    div.line {
+        height: 5%;
+        width: 100%;
+        display: flex;
+        border-radius: inherit;
+        i {
+            border-radius: inherit;
+            background-color: var(--blue-buttons) !important;
+            width: 0%;
+        }
+    }
+}

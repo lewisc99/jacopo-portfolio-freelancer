@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-blog-create',
@@ -20,10 +21,12 @@ export class BlogCreateComponent implements OnInit , OnDestroy{
     private fb: FormBuilder,
     private articleService: ArticleService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private _notificationService:NotificationService
   ) {
     this.titleService.setTitle('create');
   }
+  
 
 
   ngOnInit(): void {
@@ -76,6 +79,7 @@ export class BlogCreateComponent implements OnInit , OnDestroy{
         next: () => {
           this.saving = false;
           this.formGroup.reset();
+          this._notificationService.successTopRight("create","New Item Created");
           this.router.navigate(['../blog']);
         },
         error: (errorMessage) => alert(errorMessage),
