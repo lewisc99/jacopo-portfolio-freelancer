@@ -55,7 +55,7 @@ export class BlogComponent implements OnInit, OnDestroy {
             let count = 0;
             this.isNotificationHidden = false;
             this.notificationMessage = data.message;
-            this.intervalTime = setInterval(() => {
+            this.intervalTime = setInterval(async () => {
               count += 1;
               document.getElementById('line-item')!.style.width = count + '%';
               if (count == 100) {
@@ -64,7 +64,7 @@ export class BlogComponent implements OnInit, OnDestroy {
               }
             }, 20);
           }
-        }
+        },
       });
   }
 

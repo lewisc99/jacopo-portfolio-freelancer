@@ -26,7 +26,7 @@ public class JWTUtil {
         Date issuedAt = new Date();
         Date expiresAt = new Date();
         LocalDateTime localTime = LocalDateTime.ofInstant(expiresAt.toInstant(), ZoneId.systemDefault());
-        LocalDateTime calculateExpiresAt = localTime.plusMinutes(15);
+        LocalDateTime calculateExpiresAt = localTime.plusMinutes(1);
         expiresAt = Date.from(calculateExpiresAt.atZone(ZoneId.systemDefault()).toInstant());
         TokenResponseDTO tokenResponseDTO = new TokenResponseDTO();
          String jwt =  JWT.create()
