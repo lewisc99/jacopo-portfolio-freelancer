@@ -13,12 +13,15 @@ h1 {
 label {
     color: var(--main-font);
 }
-input {
+input[type=text], input[type=password] {
     background-color: var(--bkg-container) !important;
     border: none;
     color: var(--main-font) !important;
     height: 45px;
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+
 
 .btn-click{
     margin-right: 15px;

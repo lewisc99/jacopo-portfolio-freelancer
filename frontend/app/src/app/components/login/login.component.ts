@@ -17,9 +17,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   login: Login;
   errorActived: boolean = false;
   errorMessage: string = '';
-  loginSubscription: Subscription;
-  logoutSubscription: Subscription;
-
+  loginSubscription: Subscription = new Subscription();
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -74,7 +72,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       const email = this.formGroup.value.email;
       const password = this.formGroup.value.password;
       this.login = new Login(email, password);
-      this.loginService.login(this.login).subscribe({
+    this.loginSubscription =  this.loginService.login(this.login).subscribe({
         next: () => {
           this.router.navigate(['/..', 'blog']);
         },

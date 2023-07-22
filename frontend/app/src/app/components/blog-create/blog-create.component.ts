@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ArticleService } from 'src/app/services/article.service';
 
 @Component({
@@ -9,11 +10,12 @@ import { ArticleService } from 'src/app/services/article.service';
   templateUrl: './blog-create.component.html',
   styleUrls: ['./blog-create.component.scss'],
 })
-export class BlogCreateComponent implements OnInit {
+export class BlogCreateComponent implements OnInit , OnDestroy{
   public formGroup: FormGroup;
   public saving: boolean;
   public selectedFile: File;
   public imageValidation: string = '';
+  private createSubscription: Subscription = new Subscription();
   constructor(
     private fb: FormBuilder,
     private articleService: ArticleService,
@@ -23,6 +25,7 @@ export class BlogCreateComponent implements OnInit {
     this.titleService.setTitle('create');
   }
 
+
   ngOnInit(): void {
     this.formGroup = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(100)]],
@@ -30,6 +33,10 @@ export class BlogCreateComponent implements OnInit {
       articleLink: ['', [Validators.required, Validators.maxLength(200)]],
       image: ['', [Validators.required]],
     });
+  }
+
+  ngOnDestroy(): void {
+     this.createSubscription.unsubscribe();
   }
 
   onFileSelected(event: any) {
@@ -65,7 +72,7 @@ export class BlogCreateComponent implements OnInit {
       formData.append('text', this.formGroup.get('text')!.value);
       formData.append('articleLink', this.formGroup.get('articleLink')!.value);
       this.saving = true;
-      this.articleService.create(formData).subscribe({
+      this.createSubscription = this.articleService.create(formData).subscribe({
         next: () => {
           this.saving = false;
           this.formGroup.reset();

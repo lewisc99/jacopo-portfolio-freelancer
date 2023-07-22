@@ -18,11 +18,6 @@ export class AuthGuard implements CanActivate
     this.tokenStorage.isTokenValid$.subscribe(
         result => isAuthenticated = result
     )
-
-     if (!isAuthenticated)
-     {
-        // this.router.navigate(['/..','login']);
-     }
        return true;
     }
 }

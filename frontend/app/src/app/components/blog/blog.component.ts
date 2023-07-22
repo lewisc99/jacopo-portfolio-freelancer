@@ -8,102 +8,88 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss']
+  styleUrls: ['./blog.component.scss'],
 })
 export class BlogComponent implements OnInit {
-
-  public loading:boolean = false;
-  public articlesDTO!:ArticlesDTO;
-  private lastPage:number = 0;
+  public loading: boolean = false;
+  public articlesDTO!: ArticlesDTO;
+  private lastPage: number = 0;
   private pageRequest = new PageModel();
   public isLoggedOut = false;
-  constructor(private articleService: ArticleService, private router:Router, private _tokenService:TokenStorageService,
-    private titleService:Title) {
-      this.titleService.setTitle("Blog");
-    }
-  
+  constructor(
+    private articleService: ArticleService,
+    private router: Router,
+    private _tokenService: TokenStorageService,
+    private titleService: Title
+  ) {
+    this.titleService.setTitle('Blog');
+  }
+
   ngOnInit(): void {
-      this.loading = true;
-      this.getAll();
-      this._tokenService.isTokenValid$.subscribe(
-       async result => this.isLoggedOut =  !result
-      )
+    this.loading = true;
+    this.getAll();
+    this._tokenService.isTokenValid$.subscribe(
+      async (result) => (this.isLoggedOut = !result)
+    );
   }
 
-  public getAll(page?:number):void {
-
-      if (page != null)
-      {
-        this.pageRequest.page = page!;
-        this.pageRequest.size = 5;
-      } else {
-        this.pageRequest.page = 0;
-        this.pageRequest.size = 5;
-      }
-      this.articleService.getAll(this.pageRequest).subscribe({
-        next: data =>
-        {
-          this.loading = false;
-          this.articlesDTO = data;
-          this.addActivedPageEvent(page);
-        }
-      });
-  }
-
-  addActivedPageEvent(page?:number)
-  {
-    if (this.pageRequest.page != 0 && page != null)
-    {
-      document.getElementById('page-item-' + page)!.classList.toggle('active');
-      if (this.lastPage != null)
-        document.getElementById('page-item-' + this.lastPage)!.classList.remove('active');
-      this.lastPage = page!;
+  public getAll(page?: number): void {
+    if (page != null) {
+      this.pageRequest.page = page!;
+      this.pageRequest.size = 5;
     } else {
-        document.getElementById('page-item-0')!.classList.add('active');
-        document.getElementById('page-item-' + this.lastPage)!.classList.remove('active');
-        this.lastPage = 0;
+      this.pageRequest.page = 0;
+      this.pageRequest.size = 5;
+    }
+    this.articleService.getAll(this.pageRequest).subscribe({
+      next: (data) => {
+        this.loading = false;
+        this.articlesDTO = data;
+        this.addActivedPageEvent(page);
+      },
+    });
+  }
+
+  addActivedPageEvent(page?: number) {
+    if (page != null || page != undefined) {
+      if (page >= 0 && page < this.articlesDTO.totalPages) {
+        document
+          .getElementById('page-item-' + this.lastPage)!
+          .classList.remove('active');
+        document
+          .getElementById('page-item-' + page)!
+          .classList.toggle('active');
+        this.lastPage = page;
+      }
     }
   }
 
-  public onDelete(id:string):void
-  {
-      this.loading = true;
-      this.articleService.delete(id).subscribe({
-        next: () => {
-            this.loading = false;
-            this.getAll();
-        }, error: (errorMessage) => alert(errorMessage)
-      })
+  public onDelete(id: string): void {
+    this.loading = true;
+    this.articleService.delete(id).subscribe({
+      next: () => {
+        this.loading = false;
+        this.getAll();
+      },
+      error: (errorMessage) => alert(errorMessage),
+    });
   }
 
-  public onUpdate(id:string):void {
+  public onUpdate(id: string): void {
     this.loading = true;
-    this.router.navigate(["blog",id,"update"]);
+    this.router.navigate(['blog', id, 'update']);
     this.loading = false;
   }
 
-  previousAndNextPaginated(isNext:boolean)
-  {
-    if(this.articlesDTO.totalPages > 0)
-    {
-      if (isNext)
-      {
-       if (this.pageRequest.page < this.articlesDTO.totalPages - 1)
-        {
+  previousAndNextPaginated(isNext: boolean) {
+    if (this.articlesDTO.totalPages > 0) {
+      if (isNext) {
+        if (this.pageRequest.page < this.articlesDTO.totalPages - 1)
           this.pageRequest.page += 1;
-          document.getElementById('next')!.classList.toggle('active');
-          document.getElementById('previous')!.classList.remove('active');
-        }
       } else {
-        if (this.pageRequest.page > 0)
-        {
-          document.getElementById('previous')!.classList.toggle('active');
-          document.getElementById('next')!.classList.remove('active');
-          this.pageRequest.page -= 1;
-        }
+        if (this.pageRequest.page > 0) this.pageRequest.page -= 1;
       }
       this.getAll(this.pageRequest.page);
     }
   }
-  
 }

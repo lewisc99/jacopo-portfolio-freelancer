@@ -6,7 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -22,8 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public servicesList: any[] = [];
   public referencesList: any[] = [];
   lastIndex: number = 0;
-  changeTranslationSubscription: Subscription;
-
+  changeTranslationSubscription: Subscription = new Subscription();
   idiomsSubscrition: Subscription = new Subscription();
   constructor(
     private _translate: TranslateService,
