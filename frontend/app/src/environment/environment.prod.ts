@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
+    production: true,
     article_URL: "https://jacopo-teste.onrender.com/api/v1/",
   };
