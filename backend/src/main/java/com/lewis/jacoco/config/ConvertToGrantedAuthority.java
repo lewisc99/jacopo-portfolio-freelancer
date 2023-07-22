@@ -8,7 +8,6 @@ import java.util.List;
 
 @Component
 public class ConvertToGrantedAuthority {
-
     public static List<GrantedAuthority> getRoles(List<String> roles) {
         List<GrantedAuthority> authoritiesRole = new ArrayList<GrantedAuthority>();
 
