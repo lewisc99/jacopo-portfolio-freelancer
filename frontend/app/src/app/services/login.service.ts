@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environment/environment.test';
+import { environment } from 'src/environment/environment';
 import { Login } from '../domain/entities/login';
 import { TokenDto } from '../domain/dtos/tokenDto';
 import { Observable, catchError, map, throwError } from 'rxjs';

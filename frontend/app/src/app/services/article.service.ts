@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { environment } from 'src/environment/environment.test';
+import { environment } from 'src/environment/environment';
 import { ArticleDTO, ArticlesDTO, PageModel } from '../domain/entities/article';
 import { Observable, catchError, map, throwError } from 'rxjs';
 
