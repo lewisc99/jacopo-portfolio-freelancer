@@ -1,7 +1,6 @@
 package com.lewis.jacoco.securities;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,7 +10,6 @@ public class SecurityProperties {
     private static String key;
     private static String expiration;
     private static String header;
-
     private static String origin;
 
     public static String getKey() {
@@ -42,4 +40,7 @@ public class SecurityProperties {
         return origin;
     }
 
+    public  void setOrigin(String origin) {
+        SecurityProperties.origin = origin;
+    }
 }
