@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private titleService: Title
   ) {
     this.titleService.setTitle('Home');
+    _translate.get(this._translate.currentLang);
   }
 
   ngOnInit(): void {
@@ -54,12 +55,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   changeTranslation() {
-    // this._translate.onLangChange.subscribe( ((event: LangChangeEvent) =>
-    // {
-    //   this._translate.use(event.lang)
-    //   this.initializeDefaultComponentTranslation()
-    // }));
-
     this.changeTranslationSubscription = this._translate.onLangChange.subscribe(
       () => this.initializeDefaultComponentTranslation()
     );
