@@ -19,7 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
   loggedInSubscription: Subscription = new Subscription();
 
   constructor(
-    private _translate: TranslateService,
     private _tokenStorageService: TokenStorageService,
     private router: Router,
     private _translateService: TranslateService,

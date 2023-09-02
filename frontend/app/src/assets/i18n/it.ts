@@ -26,7 +26,25 @@ export const localeIt = {
       aboutMe: 'About Me',
       textHighlight:
         'Consulenze sistemico-semiotiche per Personal Branding e Brand Activism.',
-      text: "Attraverso una semiotica applicata, il mio impegno è quello di dare un contributo qualitativo alla comunicazione e all'intelligenza emotiva dei professionisti.",
+      text: `
+Sono Jacopo Giancaspro, ho 27 anni e sono un semiologo. Per la metodologia che adotto, ho tratto spunto da diversi approcci semiotici culturali,
+ interpretativi e strutturali, assieme a elementi di psicologia sistemica. Attraverso interviste semi-strutturate, lascio parlare liberamente il professionista,
+  al fine di consentirgli di migliorare skill di pensiero narrativo, di intelligenza emotiva e di empatia. I contenuti elicitati tramite le interviste sono autentici 
+  e non frutto di un forzato storytelling, sono registrati e declinati in approfondimenti extra, proposti a livello social sugli account dei professionisti. 
+  Una strategia di personal branding aiuta a canalizzare in maniera efficace i propri contenuti. L'obiettivo è rendere i soggetti autonomi sui social, 
+  senza mai obbligarli alla pubblicazione, né imporre loro determinati contenuti. Tutto il materiale proposto è soggetto a una approvazione
+  preventiva da parte della persona coinvolta. A livello narrativo, è possibile tracciare isotopie (ridondanze semiche / elementi ricorrenti) 
+  alcune consapevoli altre meno da parte del soggetto, per delineare 5 sfere specifiche per ciascun professionista nella comunicazione del proprio personal brand. 
+  Le sfere della persona sono da considerarsi come testualità in relazione. Utilizzo una prassi operativa per empatizzare con il soggetto e a dargli un pratico ed 
+  efficace supporto per ogni forma di prestazione lavorativa. Lo scambio reciproco costruttivo e collaborativo permette un surplus di significato e non la mera sommatoria 
+  delle conoscenze; l’aspetto dialogico che porta a un feedback continuo soggetto/analista condurrà l’analisi ad una intrinseca polifonia. `,
+      textPartTwo: `Pertanto è importante un approccio analitico olistico. - Le interviste avvengono da remoto, ma sarebbe auspicabile svolgerle anche dal vivo, 
+      per comprendere come il soggetto reagisca alle variazioni diamesiche. - La durata media è di 30 minuti, più un momento dedicato a un confronto successivo con
+       il soggetto dopo aver metabolizzato la conversazione. - Le interviste si tengono nella madrelingua d’origine del professionista, poiché la lingua è un sistema
+        modellizzante primario; qualora non fosse possibile, viene utilizzato l' italiano o l' inglese. Si giunge a comprendere a livello metadiscorsivo: - la consapevolezza
+         che il soggetto presenta durante e dopo le sessioni e il suo grado di verbalizzazione di una problematica precedentemente espressa (o emersa ma non a livello consapevole);
+          - come canalizzare la creatività del professionista in contenuti empatici; - le esigenze dei professionisti che richiedono un supporto, attraverso questa indagine
+           preliminare semiotica. Con la semiotica applicata, il mio impegno è dare un contributo qualitativo alla comunicazione del professionista.`,
       download: 'Download CV',
     },
     services: {

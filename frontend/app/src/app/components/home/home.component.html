@@ -29,14 +29,18 @@
     >
       <p class="introduce">Introduce</p>
       <h1 class="gradient-color">{{ "about.aboutMe" | translate }}</h1>
-      <p>
+      <p class="about-text">
         <code>{{ "about.textHighlight" | translate }}</code> <br />
         {{ "about.text" | translate }}
       </p>
+      <p>
+        {{ "about.textPartTwo" | translate }}
+      </p>
       <button class="btn btn-click btn-lg-12">
-        {{ "about.download" | translate }}
+        <a target="_blank" [href]="downloadCvHref">
+          {{ "about.download" | translate }}
+        </a>
       </button>
-      <div class="semiotical-logo"></div>
     </div>
   </div>
 </section>
@@ -132,7 +136,7 @@
       </h1>
     </div>
   </div>
-  <div class="row col-lg-12 justify-content-center align-items-center">
+  <div class="row col-lg-12 justify-content-center align-items-center sites">
     <div
       class="col-lg-6 d-flex justify-content-evenly flex-wrap align-items-center"
     >

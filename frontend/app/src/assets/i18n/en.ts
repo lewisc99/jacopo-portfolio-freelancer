@@ -25,7 +25,27 @@ export const localeEn = {
       aboutMe: 'About Me',
       textHighlight:
         'Systemic-semiotic consultancy to develop social content for Personal Branding and Brand Activism.',
-      text: '',
+      text: `I am Jacopo Giancaspro, I am 27 years old, and I am a semiotician. For the methodology I adopt,
+       I have drawn inspiration from various cultural, interpretive, and structural semiotic approaches,
+        along with elements of systemic psychology. Through semi-structured interviews, I allow the professional to speak freely,
+         in order to enable them to improve their narrative thinking skills, emotional intelligence, and empathy. The content elicited through
+          the interviews is authentic and not a result of forced storytelling; it is recorded and explored in further detail, proposed on social platforms of the professionals.
+           A personal branding strategy helps effectively channel one's own content. The goal is to make individuals autonomous on social media, without ever obligating them to publish 
+           or imposing specific content. All proposed material is subject to prior approval by the involved person. On a narrative level, it is possible to trace isotopies
+            (semantic redundancies / recurring elements), some conscious and others less so on the part of the subject, to outline 5 specific spheres for each professional
+             in communicating their own personal brand. The individual's spheres should be considered as interconnected textual elements. I use an operational practice to
+              empathize with the subject and provide practical and effective support for any form of work performance. The constructive and collaborative reciprocal exchange 
+              allows for a surplus of meaning, not merely a sum of knowledge; the dialogic aspect that leads to continuous subject/analyst feedback will guide the analysis towards
+               intrinsic polyphony. Therefore, a holistic analytical approach is important. - Interviews are conducted remotely, but it would be desirable to conduct them in person as well,
+                to understand how the subject reacts to diamesic variations.\n
+                
+
+      `,
+      textPartTwo: `The average duration is 30 minutes, plus a moment dedicated to further discussion with the subject after digesting the conversation.
+      Interviews are conducted in the professional's native language, as language is a primary shaping system; if not possible, Italian or English is used. This leads to understanding at a metadiscursive level:
+      The awareness that the subject exhibits during and after the sessions and their degree of verbalization of a previously expressed (or emerged but not consciously) issue;
+      How to channel the professional's creativity into empathic content;
+      The needs of professionals requiring support, through this preliminary semiotic investigation. With applied semiotics, my commitment is to provide a qualitative contribution to the professional's communication.`,
       download: 'Download CV',
     },
     services: {

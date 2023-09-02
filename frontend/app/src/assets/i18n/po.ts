@@ -26,7 +26,20 @@ export const localePo = {
       aboutMe: 'sobre Mim',
       textHighlight:
         'Consultoria sistêmico-semiótica para desenvolver conteúdos social para Personal Branding  e Brand Activism.',
-      text: 'Por meio de uma semiótica aplicada, meu compromisso é dar uma contribuição qualitativa para a comunicação do profissional.',
+      text: `Eu sou Jacopo Giancaspro, tenho 27 anos e sou um semiólogo.
+      Para a metodologia que eu adoto, eu tirei inspiração de várias abordagens semióticas culturais, interpretativas e estruturais, juntamente com elementos de psicologia sistêmica. Através de entrevistas semi-estruturadas, permito que o profissional fale livremente, a fim de permitir que ele melhore suas habilidades de pensamento narrativo, inteligência emocional e empatia.
+      Os conteúdos obtidos por meio das entrevistas são autênticos e não são resultado de uma narrativa forçada, são registrados e aprofundados em análises adicionais, propostos socialmente nas contas dos profissionais. Uma estratégia de personal branding ajuda a canalizar de forma eficaz os próprios conteúdos.
+      O objetivo é tornar os sujeitos autônomos nas redes sociais, sem nunca obrigá-los a publicar, nem impor a eles determinados conteúdos.
+      Todo o material proposto está sujeito a uma aprovação prévia por parte da pessoa envolvida. Em termos narrativos, é possível traçar isotopias (redundâncias semânticas / elementos recorrentes), algumas conscientes, outras menos por parte do sujeito, para delinear 5 esferas específicas para cada profissional na comunicação de sua própria marca pessoal.
+      As esferas da pessoa devem ser consideradas como textualidade em relação.
+      Uso uma prática operativa para me relacionar com o sujeito e fornecer a ele um suporte prático e eficaz para qualquer forma de desempenho profissional.
+      A troca recíproca, construtiva e colaborativa permite um excedente de significado e não apenas a soma de conhecimentos; o aspecto dialógico que leva a um feedback contínuo sujeito/analista levará a análise a uma polifonia intrínseca.`,
+      textPartTwo: `Portanto, uma abordagem analítica holística é importante. - As entrevistas são realizadas remotamente, mas seria desejável realizá-las também presencialmente, para entender como o sujeito reage às variações diamesicas.
+      - A duração média é de 30 minutos, mais um momento dedicado a uma discussão posterior com o sujeito após ter metabolizado a conversa.
+      - As entrevistas são conduzidas na língua materna do profissional, uma vez que a língua é um sistema modelador primário; caso não seja possível, o italiano ou o inglês são utilizados. Chega-se a entender em nível metadiscursivo:
+      - a consciência que o sujeito apresenta durante e após as sessões e seu grau de verbalização de um problema anteriormente expresso (ou emergido, mas não conscientemente);
+      - como canalizar a criatividade do profissional em conteúdos empáticos;
+      - as necessidades dos profissionais que requerem suporte, através desta investigação preliminar semiótica. Com a semiótica aplicada, meu compromisso é fornecer uma contribuição qualitativa à comunicação do profissional.`,
       download: 'Baixar CV',
     },
     services: {

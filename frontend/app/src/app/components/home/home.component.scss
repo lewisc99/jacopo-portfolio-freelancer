@@ -26,7 +26,8 @@ code {
 }
 
 #about {
-    height: 600px;
+    height: auto;
+    margin-bottom: 20px;
 
     h1 {
         font-size: 7rem; 
@@ -46,14 +47,8 @@ code {
          font-family: Snell Roundhand;
          color: #1b1b1b;
     }
-    .semiotical-logo {
-        position: relative;
-        background-color:#0D0D0D;
-        width: 400px;
-        height: 500px;
-        left: 700px;
-        top: -400px;
-    }
+ 
+ 
 }
 
 
@@ -139,9 +134,13 @@ code {
     } 
 
     a {
-        margin-right: 2%;
-        margin-bottom: 2%;
+        width: 25%;
+        margin-top: 10px;
+        img {
+            width: 90px;
+        }
     }
+  
 
     input, textarea {
         background-color: var(--bkg-container);
@@ -276,6 +275,14 @@ code {
         h1 {
             font-size: 4.3rem; 
         } 
+        .sites {
+            height: auto !important;
+            display: flex;
+            flex-direction: column !important;
+            img {
+                width: 40px;
+            }
+        }
     }
     
 }

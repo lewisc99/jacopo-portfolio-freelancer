@@ -21,8 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogUpdateComponent } from './components/blog-update/blog-update.component';
 import { AuthGuard } from './shared/auth-guards/auth.guard';
 import { TokenInterceptor } from './shared/interceptor/token-interceptor.interceptor';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   defineLocale,
   enGbLocale,

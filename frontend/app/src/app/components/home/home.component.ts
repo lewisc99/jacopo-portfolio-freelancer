@@ -24,12 +24,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   lastIndex: number = 0;
   changeTranslationSubscription: Subscription = new Subscription();
   idiomsSubscrition: Subscription = new Subscription();
+  public downloadCvHref: string =
+    'https://drive.google.com/file/d/1Ih4jKVXwbqi0eQqZ42hmL8pnfeTg4Tht/view';
   constructor(
     private _translate: TranslateService,
     private titleService: Title
   ) {
     this.titleService.setTitle('Home');
-    _translate.get(this._translate.currentLang);
   }
 
   ngOnInit(): void {
